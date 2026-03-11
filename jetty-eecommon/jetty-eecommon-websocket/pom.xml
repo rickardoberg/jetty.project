@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.jetty.eecommon</groupId>
+    <artifactId>jetty-eecommon</artifactId>
+    <version>12.1.7-SNAPSHOT</version>
+  </parent>
+  <groupId>org.eclipse.jetty.eecommon.websocket</groupId>
+  <artifactId>jetty-eecommon-websocket</artifactId>
+  <packaging>pom</packaging>
+  <name>EECommon :: Websocket</name>
+
+  <modules>
+    <module>jetty-eecommon-websocket-jakarta-client</module>
+    <module>jetty-eecommon-websocket-jakarta-client-webapp</module>
+    <module>jetty-eecommon-websocket-jakarta-common</module>
+    <module>jetty-eecommon-websocket-jakarta-server</module>
+    <module>jetty-eecommon-websocket-jakarta-tests</module>
+    <module>jetty-eecommon-websocket-jetty-client-webapp</module>
+    <module>jetty-eecommon-websocket-jetty-server</module>
+    <module>jetty-eecommon-websocket-jetty-tests</module>
+    <module>jetty-eecommon-websocket-servlet</module>
+  </modules>
+
+  <properties>
+    <sonar.skip>true</sonar.skip>
+  </properties>
+
+</project>

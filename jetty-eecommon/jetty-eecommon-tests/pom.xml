@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.jetty.eecommon</groupId>
+    <artifactId>jetty-eecommon</artifactId>
+    <version>12.1.7-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>jetty-eecommon-tests</artifactId>
+  <packaging>pom</packaging>
+  <name>EECommon :: Tests</name>
+
+  <modules>
+    <module>jetty-eecommon-test-bad-websocket-webapp</module>
+    <module>jetty-eecommon-test-badinit-webapp</module>
+    <module>jetty-eecommon-test-cdi</module>
+    <module>jetty-eecommon-test-cdi-common-webapp</module>
+    <module>jetty-eecommon-test-client-transports</module>
+    <module>jetty-eecommon-test-felix-webapp</module>
+    <module>jetty-eecommon-test-http2-webapp</module>
+    <module>jetty-eecommon-test-integration</module>
+    <!-- module>jetty-eecommon-test-jersey</module -->
+    <!-- jakarta.ws.rs.api 4.0.0-M2 pom broken -->
+    <module>jetty-eecommon-test-jmx</module>
+    <module>jetty-eecommon-test-jndi</module>
+    <module>jetty-eecommon-test-log4j2-webapp</module>
+    <module>jetty-eecommon-test-loginservice</module>
+    <module>jetty-eecommon-test-openid-webapp</module>
+    <module>jetty-eecommon-test-owb-cdi-webapp</module>
+    <module>jetty-eecommon-test-quickstart</module>
+    <module>jetty-eecommon-test-sessions</module>
+    <module>jetty-eecommon-test-simple-session-webapp</module>
+    <module>jetty-eecommon-test-websocket-client-provided-webapp</module>
+    <module>jetty-eecommon-test-websocket-client-webapp</module>
+    <module>jetty-eecommon-test-websocket-webapp</module>
+    <module>jetty-eecommon-test-weld-cdi-webapp</module>
+  </modules>
+
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+    <sonar.skip>true</sonar.skip>
+  </properties>
+</project>

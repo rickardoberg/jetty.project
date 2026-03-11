@@ -23,5 +23,6 @@ module org.eclipse.jetty.websocket.server
     exports org.eclipse.jetty.websocket.server;
     exports org.eclipse.jetty.websocket.server.internal to
         org.eclipse.jetty.ee10.websocket.jetty.server,
-        org.eclipse.jetty.ee11.websocket.jetty.server;
+        org.eclipse.jetty.ee11.websocket.jetty.server,
+        org.eclipse.jetty.eecommon.websocket.jetty.server;
 }
