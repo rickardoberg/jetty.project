@@ -36,7 +36,7 @@ import jakarta.servlet.ServletContainerInitializer;
 import jakarta.servlet.annotation.HandlesTypes;
 import org.eclipse.jetty.annotations.AnnotationParser;
 import org.eclipse.jetty.annotations.ClassInheritanceHandler;
-import org.eclipse.jetty.ee.webapp.WebAppClassLoader;
+import org.eclipse.jetty.ee.common.WebAppClassLoader;
 import org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
 import org.eclipse.jetty.ee10.servlet.ServletContainerInitializerHolder;
 import org.eclipse.jetty.ee10.servlet.Source;

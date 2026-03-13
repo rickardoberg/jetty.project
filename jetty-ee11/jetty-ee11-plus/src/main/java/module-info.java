@@ -21,6 +21,7 @@ module org.eclipse.jetty.ee11.plus
     // Only required if using Transaction.
     requires static transitive jakarta.transaction;
     requires org.eclipse.jetty.jndi;
+    requires org.eclipse.jetty.ee.common;
 
     exports org.eclipse.jetty.ee11.plus.jndi;
     exports org.eclipse.jetty.ee11.plus.webapp;

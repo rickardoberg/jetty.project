@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.jetty.ee</groupId>
+    <artifactId>jetty-ee</artifactId>
+    <version>12.1.7-SNAPSHOT</version>
+  </parent>
+  <groupId>org.eclipse.jetty.ee.osgi</groupId>
+  <artifactId>jetty-ee-osgi</artifactId>
+  <packaging>pom</packaging>
+  <name>EECommon :: OSGi</name>
+
+  <modules>
+    <module>jetty-ee-osgi-alpn</module>
+    <module>jetty-ee-osgi-boot</module>
+    <module>jetty-ee-osgi-boot-jsp</module>
+    <!--
+    <module>test-jetty-ee-osgi</module>
+    <module>test-jetty-ee-osgi-fragment</module>
+    <module>test-jetty-ee-osgi-server</module>
+    <module>test-jetty-ee-osgi-webapp-resources</module>
+-->
+  </modules>
+
+  <properties>
+    <jacoco.skip>true</jacoco.skip>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.eclipse.jetty.ee.osgi</groupId>
+        <artifactId>jetty-ee-osgi-boot</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty.ee.osgi</groupId>
+        <artifactId>jetty-ee-osgi-boot-jsp</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

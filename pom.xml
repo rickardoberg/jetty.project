@@ -124,7 +124,7 @@
   <modules>
     <module>build</module>
     <module>jetty-core</module>
-    <module>jetty-eecommon</module>
+    <module>jetty-ee</module>
     <module>jetty-ee11</module>
     <module>jetty-ee10</module>
     <module>jetty-ee9</module>
@@ -202,7 +202,7 @@
     <duplicate-finder-maven-plugin.version>2.0.1</duplicate-finder-maven-plugin.version>
     <eclipse.jdt.ecj.version>3.44.0</eclipse.jdt.ecj.version>
 
-    <eecommon.jakarta.bom.version>11.0.0</eecommon.jakarta.bom.version>
+    <ee.jakarta.bom.version>11.0.0</ee.jakarta.bom.version>
     <ee10.jakarta.bom.version>10.0.0</ee10.jakarta.bom.version>
     <ee11.jakarta.bom.version>11.0.0</ee11.jakarta.bom.version>
     <ee8.jakarta.annotation.api.version>1.3.5</ee8.jakarta.annotation.api.version>

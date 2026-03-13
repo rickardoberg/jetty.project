@@ -68,6 +68,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.eclipse.jetty.ee</groupId>
+        <artifactId>jetty-ee-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.sun.mail</groupId>
         <artifactId>jakarta.mail</artifactId>
         <version>${ee9.jakarta.mail.api.version}</version>

@@ -20,7 +20,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import jakarta.servlet.ServletContext;
-import org.eclipse.jetty.ee.webapp.WebAppClassLoader;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.FileID;
 import org.eclipse.jetty.util.IO;

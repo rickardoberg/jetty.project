@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.eclipse.jetty.ee</groupId>
+    <artifactId>jetty-ee</artifactId>
+    <version>12.1.7-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>jetty-ee-tests</artifactId>
+  <packaging>pom</packaging>
+  <name>EECommon :: Tests</name>
+
+  <modules>
+    <module>jetty-ee-test-bad-websocket-webapp</module>
+    <module>jetty-ee-test-badinit-webapp</module>
+    <module>jetty-ee-test-cdi</module>
+    <module>jetty-ee-test-cdi-common-webapp</module>
+    <module>jetty-ee-test-client-transports</module>
+    <module>jetty-ee-test-felix-webapp</module>
+    <module>jetty-ee-test-http2-webapp</module>
+    <module>jetty-ee-test-integration</module>
+    <!-- module>jetty-ee-test-jersey</module -->
+    <!-- jakarta.ws.rs.api 4.0.0-M2 pom broken -->
+    <module>jetty-ee-test-jmx</module>
+    <module>jetty-ee-test-jndi</module>
+    <module>jetty-ee-test-log4j2-webapp</module>
+    <module>jetty-ee-test-loginservice</module>
+    <module>jetty-ee-test-openid-webapp</module>
+    <module>jetty-ee-test-owb-cdi-webapp</module>
+    <module>jetty-ee-test-quickstart</module>
+    <module>jetty-ee-test-sessions</module>
+    <module>jetty-ee-test-simple-session-webapp</module>
+    <module>jetty-ee-test-websocket-client-provided-webapp</module>
+    <module>jetty-ee-test-websocket-client-webapp</module>
+    <module>jetty-ee-test-websocket-webapp</module>
+    <module>jetty-ee-test-weld-cdi-webapp</module>
+  </modules>
+
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+    <sonar.skip>true</sonar.skip>
+  </properties>
+</project>

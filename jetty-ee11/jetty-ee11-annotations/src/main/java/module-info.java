@@ -21,6 +21,7 @@ module org.eclipse.jetty.ee11.annotations
     requires transitive org.eclipse.jetty.plus;
     requires transitive org.eclipse.jetty.ee11.plus;
     requires transitive org.objectweb.asm;
+    requires org.eclipse.jetty.ee.common;
 
     exports org.eclipse.jetty.ee11.annotations;
 
