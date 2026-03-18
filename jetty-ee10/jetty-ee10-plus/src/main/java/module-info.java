@@ -25,7 +25,7 @@ module org.eclipse.jetty.ee10.plus
     exports org.eclipse.jetty.ee10.plus.jndi;
     exports org.eclipse.jetty.ee10.plus.webapp;
 
-    provides org.eclipse.jetty.ee10.webapp.Configuration with
+    provides org.eclipse.jetty.ee.webapp.Configuration with
         org.eclipse.jetty.ee10.plus.webapp.EnvConfiguration,
         org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
 }

@@ -21,6 +21,7 @@ module org.eclipse.jetty.ee10.servlet
     requires transitive org.eclipse.jetty.server;
     requires transitive org.eclipse.jetty.security;
     requires transitive org.eclipse.jetty.session;
+    requires transitive org.eclipse.jetty.ee.servlet;
 
     // Only required if using IntrospectorCleaner.
     requires static java.desktop;
@@ -35,14 +36,6 @@ module org.eclipse.jetty.ee10.servlet
     requires static java.sql;
 
     exports org.eclipse.jetty.ee10.servlet;
-    exports org.eclipse.jetty.ee10.servlet.listener;
-    exports org.eclipse.jetty.ee10.servlet.security;
-    exports org.eclipse.jetty.ee10.servlet.security.authentication;
-    exports org.eclipse.jetty.ee10.servlet.util;
-
-
-    exports org.eclipse.jetty.ee10.servlet.jmx to
-         org.eclipse.jetty.jmx;
 
     uses Authenticator.Factory;
 }

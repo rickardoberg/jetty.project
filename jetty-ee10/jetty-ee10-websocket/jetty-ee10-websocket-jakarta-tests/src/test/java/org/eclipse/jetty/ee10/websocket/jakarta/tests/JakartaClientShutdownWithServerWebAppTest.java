@@ -27,7 +27,7 @@ import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.Response;
 import org.eclipse.jetty.compression.Compression;
 import org.eclipse.jetty.compression.gzip.GzipCompression;
-import org.eclipse.jetty.ee10.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.Configuration;
 import org.eclipse.jetty.ee10.websocket.jakarta.client.JakartaWebSocketClientContainerProvider;
 import org.eclipse.jetty.ee10.websocket.jakarta.client.webapp.JakartaWebSocketShutdownContainer;
 import org.eclipse.jetty.ee10.websocket.jakarta.common.JakartaWebSocketContainer;
@@ -35,7 +35,6 @@ import org.eclipse.jetty.ee10.websocket.jakarta.server.config.JakartaWebSocketCo
 import org.eclipse.jetty.http.BadMessageException;
 import org.eclipse.jetty.http.HttpStatus;
 import org.eclipse.jetty.io.EndPoint;
-import org.eclipse.jetty.util.TypeUtil;
 import org.eclipse.jetty.util.component.ContainerLifeCycle;
 import org.eclipse.jetty.websocket.core.WebSocketComponents;
 import org.eclipse.jetty.websocket.core.client.CoreClientUpgradeRequest;

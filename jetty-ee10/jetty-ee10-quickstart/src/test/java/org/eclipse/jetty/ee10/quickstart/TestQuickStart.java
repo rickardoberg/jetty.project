@@ -16,9 +16,9 @@ package org.eclipse.jetty.ee10.quickstart;
 import java.io.File;
 import java.util.Arrays;
 
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
-import org.eclipse.jetty.ee10.servlet.ListenerHolder;
-import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.ListenerHolder;
+import org.eclipse.jetty.ee.servlet.ServletHolder;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.toolchain.test.FS;

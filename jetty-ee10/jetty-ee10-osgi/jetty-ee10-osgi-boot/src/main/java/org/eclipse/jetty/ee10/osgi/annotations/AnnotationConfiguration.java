@@ -18,9 +18,9 @@ import java.util.Set;
 
 import jakarta.servlet.ServletContainerInitializer;
 import org.eclipse.jetty.annotations.AnnotationParser.Handler;
+import org.eclipse.jetty.ee.webapp.Configuration;
 import org.eclipse.jetty.ee10.osgi.boot.OSGiMetaInfConfiguration;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.osgi.OSGiWebappConstants;
 import org.eclipse.jetty.util.FileID;
 import org.eclipse.jetty.util.StringUtil;

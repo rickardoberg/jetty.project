@@ -81,11 +81,6 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.jetty.ee</groupId>
-      <artifactId>jetty-ee-servlets</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty.ee</groupId>
       <artifactId>jetty-ee-webapp</artifactId>
       <scope>test</scope>
     </dependency>

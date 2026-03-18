@@ -35,8 +35,8 @@ import jakarta.servlet.http.HttpSession;
 import org.awaitility.Awaitility;
 import org.eclipse.jetty.client.ContentResponse;
 import org.eclipse.jetty.client.HttpClient;
+import org.eclipse.jetty.ee.servlet.ServletHolder;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jetty.http.HttpTester;
 import org.eclipse.jetty.logging.StacklessLogging;
 import org.eclipse.jetty.server.HttpConfiguration;
@@ -51,7 +51,6 @@ import org.eclipse.jetty.session.test.FooInvocationHandler;
 import org.eclipse.jetty.session.test.TestFoo;
 import org.eclipse.jetty.session.test.TestSessionDataStoreFactory;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

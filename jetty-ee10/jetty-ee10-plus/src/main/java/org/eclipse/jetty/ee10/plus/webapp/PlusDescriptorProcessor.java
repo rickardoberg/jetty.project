@@ -19,12 +19,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NameNotFoundException;
 
+import org.eclipse.jetty.ee.webapp.Descriptor;
+import org.eclipse.jetty.ee.webapp.FragmentDescriptor;
+import org.eclipse.jetty.ee.webapp.IterativeDescriptorProcessor;
+import org.eclipse.jetty.ee.webapp.Origin;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee10.webapp.Descriptor;
-import org.eclipse.jetty.ee10.webapp.FragmentDescriptor;
-import org.eclipse.jetty.ee10.webapp.IterativeDescriptorProcessor;
-import org.eclipse.jetty.ee10.webapp.Origin;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.plus.annotation.Injection;
 import org.eclipse.jetty.plus.annotation.InjectionCollection;
 import org.eclipse.jetty.plus.annotation.LifeCycleCallback;
@@ -750,7 +750,7 @@ public class PlusDescriptorProcessor extends IterativeDescriptorProcessor
     /**
      * Make injections and any java:comp/env bindings necessary given an env-entry declaration.
      * The handling of env-entries is different to other resource declarations like resource-ref, resource-env-ref etc
-     * because we allow the EnvEntry (@see org.eclipse.jetty.plus.jndi.EnvEntry) class that is configured externally to the webapp 
+     * because we allow the EnvEntry (@see org.eclipse.jetty.plus.jndi.EnvEntry) class that is configured externally to the webapp
      * to specify a value that can override a value present in a web.xml descriptor.
      *
      * @param context the WebAppContext of the env-entry

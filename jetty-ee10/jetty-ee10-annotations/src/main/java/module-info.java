@@ -19,6 +19,7 @@ module org.eclipse.jetty.ee10.annotations
 
     requires transitive org.eclipse.jetty.annotations;
     requires transitive org.eclipse.jetty.plus;
+    requires transitive org.eclipse.jetty.ee.annotations;
     requires transitive org.eclipse.jetty.ee10.plus;
     requires transitive org.objectweb.asm;
 
@@ -26,6 +27,6 @@ module org.eclipse.jetty.ee10.annotations
 
     uses jakarta.servlet.ServletContainerInitializer;
 
-    provides org.eclipse.jetty.ee10.webapp.Configuration with
+    provides org.eclipse.jetty.ee.webapp.Configuration with
         org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
 }

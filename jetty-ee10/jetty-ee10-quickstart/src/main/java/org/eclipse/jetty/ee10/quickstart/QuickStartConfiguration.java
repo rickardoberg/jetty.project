@@ -19,12 +19,12 @@ import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.jetty.ee10.annotations.AnnotationDecorator;
-import org.eclipse.jetty.ee10.webapp.AbstractConfiguration;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.StandardDescriptorProcessor;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
-import org.eclipse.jetty.ee10.webapp.WebDescriptor;
+import org.eclipse.jetty.ee.annotations.AnnotationDecorator;
+import org.eclipse.jetty.ee.webapp.AbstractConfiguration;
+import org.eclipse.jetty.ee.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.StandardDescriptorProcessor;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
+import org.eclipse.jetty.ee.webapp.WebDescriptor;
 import org.eclipse.jetty.ee10.webapp.WebInfConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebXmlConfiguration;
 import org.eclipse.jetty.server.Server;
@@ -52,10 +52,10 @@ public class QuickStartConfiguration extends AbstractConfiguration
 
     static
     {
-        __replacedConfigurations.add(org.eclipse.jetty.ee10.webapp.WebXmlConfiguration.class);
-        __replacedConfigurations.add(org.eclipse.jetty.ee10.webapp.MetaInfConfiguration.class);
-        __replacedConfigurations.add(org.eclipse.jetty.ee10.webapp.FragmentConfiguration.class);
-        __replacedConfigurations.add(org.eclipse.jetty.ee10.annotations.AnnotationConfiguration.class);
+        __replacedConfigurations.add(org.eclipse.jetty.ee.webapp.WebXmlConfiguration.class);
+        __replacedConfigurations.add(org.eclipse.jetty.ee.webapp.MetaInfConfiguration.class);
+        __replacedConfigurations.add(org.eclipse.jetty.ee.webapp.FragmentConfiguration.class);
+        __replacedConfigurations.add(org.eclipse.jetty.ee.annotations.AnnotationConfiguration.class);
     }
 
     private ResourceFactory.Closeable _resourceFactory;

@@ -55,7 +55,7 @@ import org.eclipse.jetty.client.Result;
 import org.eclipse.jetty.client.RetainingResponseListener;
 import org.eclipse.jetty.client.StringRequestContent;
 import org.eclipse.jetty.client.transport.internal.HttpConnectionOverHTTP;
-import org.eclipse.jetty.ee10.servlet.HttpOutput;
+import org.eclipse.jetty.ee.servlet.HttpOutput;
 import org.eclipse.jetty.ee10.servlet.ResourceServlet;
 import org.eclipse.jetty.http.HttpHeader;
 import org.eclipse.jetty.http.HttpHeaderValue;

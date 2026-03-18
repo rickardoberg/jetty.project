@@ -76,12 +76,12 @@ public class AnnotationConfiguration extends AbstractConfiguration
     public static final String CONTAINER_INITIALIZER_STARTER = "org.eclipse.jetty.containerInitializerStarter";
     public static final String MULTI_THREADED = "org.eclipse.jetty.annotations.multiThreaded";
     public static final String MAX_SCAN_WAIT = "org.eclipse.jetty.annotations.maxWait";
-    protected static final String STATE = "org.eclipse.jetty.annotations.state";
+    public static final String STATE = "org.eclipse.jetty.annotations.state";
 
     public static final int DEFAULT_MAX_SCAN_WAIT = 60; /* time in sec */
     public static final boolean DEFAULT_MULTI_THREADED = true;
 
-    protected static class State
+    public static class State
     {
         State(WebAppContext context)
         {
@@ -422,6 +422,8 @@ public class AnnotationConfiguration extends AbstractConfiguration
             }
         }
     }
+
+
 
     @Override
     public void preConfigure(final WebAppContext context)
@@ -845,7 +847,7 @@ public class AnnotationConfiguration extends AbstractConfiguration
      * @param state the web app annotation parse state
      * @return the list of non-excluded servlet container initializers
      */
-    protected List<ServletContainerInitializer> getNonExcludedInitializers(State state)
+    public List<ServletContainerInitializer> getNonExcludedInitializers(State state)
     {
         WebAppContext context = state._context;
         ArrayList<ServletContainerInitializer> nonExcludedInitializers = new ArrayList<>();

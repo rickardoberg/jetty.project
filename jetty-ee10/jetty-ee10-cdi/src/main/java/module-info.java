@@ -14,7 +14,6 @@
 import jakarta.servlet.ServletContainerInitializer;
 import org.eclipse.jetty.ee10.cdi.CdiConfiguration;
 import org.eclipse.jetty.ee10.cdi.CdiServletContainerInitializer;
-import org.eclipse.jetty.ee10.webapp.Configuration;
 
 module org.eclipse.jetty.ee10.cdi
 {
@@ -27,5 +26,5 @@ module org.eclipse.jetty.ee10.cdi
     exports org.eclipse.jetty.ee10.cdi;
 
     provides ServletContainerInitializer with CdiServletContainerInitializer;
-    provides Configuration with CdiConfiguration;
+    provides org.eclipse.jetty.ee.webapp.Configuration with CdiConfiguration;
 }

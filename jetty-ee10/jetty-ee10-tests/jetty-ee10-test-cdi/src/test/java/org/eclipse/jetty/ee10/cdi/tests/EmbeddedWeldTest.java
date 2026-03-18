@@ -18,12 +18,12 @@ import java.nio.file.Paths;
 import java.util.EnumSet;
 
 import jakarta.servlet.DispatcherType;
+import org.eclipse.jetty.ee.servlet.ListenerHolder;
 import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee10.cdi.CdiConfiguration;
 import org.eclipse.jetty.ee10.cdi.CdiDecoratingListener;
 import org.eclipse.jetty.ee10.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.ee10.cdi.CdiSpiDecorator;
-import org.eclipse.jetty.ee10.servlet.ListenerHolder;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.LocalConnector;
@@ -87,7 +87,7 @@ public class EmbeddedWeldTest
 
             case "DecoratingListener+Listener":
                 // Expect:INFO: WELD-ENV-001212: Jetty CdiDecoratingListener support detected, CDI injection will be available in Listeners, Servlets and Filters.
-                context.addEventListener(new org.eclipse.jetty.ee10.webapp.DecoratingListener(context));
+                context.addEventListener(new org.eclipse.jetty.ee.webapp.DecoratingListener(context));
                 context.getServletHandler().addListener(new ListenerHolder(org.jboss.weld.environment.servlet.Listener.class));
                 break;
 

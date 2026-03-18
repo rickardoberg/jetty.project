@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.Decorator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

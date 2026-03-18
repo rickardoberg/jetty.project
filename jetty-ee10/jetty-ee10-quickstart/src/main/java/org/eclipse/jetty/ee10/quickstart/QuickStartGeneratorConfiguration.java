@@ -30,24 +30,22 @@ import jakarta.servlet.SessionCookieConfig;
 import jakarta.servlet.SessionTrackingMode;
 import jakarta.servlet.descriptor.JspPropertyGroupDescriptor;
 import jakarta.servlet.descriptor.TaglibDescriptor;
-import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
+import org.eclipse.jetty.ee.annotations.AnnotationConfiguration;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.FilterMapping;
+import org.eclipse.jetty.ee.servlet.ListenerHolder;
+import org.eclipse.jetty.ee.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee.servlet.ServletHolder;
+import org.eclipse.jetty.ee.servlet.ServletMapping;
+import org.eclipse.jetty.ee.servlet.Source;
+import org.eclipse.jetty.ee.servlet.security.ConstraintAware;
+import org.eclipse.jetty.ee.servlet.security.ConstraintMapping;
+import org.eclipse.jetty.ee.webapp.AbstractConfiguration;
+import org.eclipse.jetty.ee.webapp.MetaData;
+import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
 import org.eclipse.jetty.ee10.servlet.ErrorPageErrorHandler;
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
-import org.eclipse.jetty.ee10.servlet.FilterMapping;
-import org.eclipse.jetty.ee10.servlet.ListenerHolder;
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler.JspConfig;
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler.ServletContainerInitializerStarter;
-import org.eclipse.jetty.ee10.servlet.ServletHandler;
-import org.eclipse.jetty.ee10.servlet.ServletHolder;
-import org.eclipse.jetty.ee10.servlet.ServletMapping;
-import org.eclipse.jetty.ee10.servlet.Source;
-import org.eclipse.jetty.ee10.servlet.security.ConstraintAware;
-import org.eclipse.jetty.ee10.servlet.security.ConstraintMapping;
-import org.eclipse.jetty.ee10.webapp.AbstractConfiguration;
-import org.eclipse.jetty.ee10.webapp.MetaData;
-import org.eclipse.jetty.ee10.webapp.MetaData.OriginInfo;
-import org.eclipse.jetty.ee10.webapp.MetaInfConfiguration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.ee.servlet.ServletHandler;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.webapp.WebInfConfiguration;
 import org.eclipse.jetty.http.MimeTypes;
 import org.eclipse.jetty.plus.annotation.LifeCycleCallback;
@@ -176,7 +174,7 @@ public class QuickStartGeneratorConfiguration extends AbstractConfiguration
         //the servlet container initializers
         //addContextParamFromAttribute(context, out, AnnotationConfiguration.CONTAINER_INITIALIZERS);
         //TODO think of better label rather than the unused attribute, also how to retrieve the scis
-        ServletContainerInitializerStarter sciStarter = context.getBean(ServletContainerInitializerStarter.class);
+        ServletContextHandler.ServletContainerInitializerStarter sciStarter = context.getBean(ServletContextHandler.ServletContainerInitializerStarter.class);
         addContextParamFromCollection(context, out, AnnotationConfiguration.CONTAINER_INITIALIZERS,
             sciStarter == null ? Collections.emptySet() : sciStarter.getServletContainerInitializerHolders());
         //the tlds discovered
@@ -505,7 +503,7 @@ public class QuickStartGeneratorConfiguration extends AbstractConfiguration
         }
 
         //jsp-config
-        JspConfig jspConfig = (JspConfig)context.getServletContext().getJspConfigDescriptor();
+        ServletContextHandler.JspConfig jspConfig = (ServletContextHandler.JspConfig)context.getServletContext().getJspConfigDescriptor();
         if (jspConfig != null)
         {
             out.openTag("jsp-config");
@@ -793,7 +791,7 @@ public class QuickStartGeneratorConfiguration extends AbstractConfiguration
             return Collections.emptyMap();
         if (name == null)
             return Collections.emptyMap();
-        OriginInfo origin = md.getOriginInfo(name);
+        MetaData.OriginInfo origin = md.getOriginInfo(name);
         if (LOG.isDebugEnabled())
             LOG.debug("origin of {} is {}", name, origin);
         if (origin == null)

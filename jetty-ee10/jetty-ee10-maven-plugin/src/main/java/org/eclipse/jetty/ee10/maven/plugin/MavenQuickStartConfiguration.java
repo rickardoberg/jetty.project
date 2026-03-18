@@ -13,9 +13,9 @@
 
 package org.eclipse.jetty.ee10.maven.plugin;
 
+import org.eclipse.jetty.ee.webapp.Configuration;
 import org.eclipse.jetty.ee10.quickstart.QuickStartConfiguration;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.util.IO;
 import org.eclipse.jetty.util.resource.CombinedResource;
 import org.eclipse.jetty.util.resource.Resource;

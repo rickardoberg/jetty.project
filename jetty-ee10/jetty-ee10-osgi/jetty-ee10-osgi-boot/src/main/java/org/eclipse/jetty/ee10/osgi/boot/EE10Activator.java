@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jetty.ee.common.WebAppClassLoader;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.Configurations;
+import org.eclipse.jetty.ee.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.Configurations;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.osgi.AbstractContextProvider;
 import org.eclipse.jetty.osgi.AbstractEEActivator;

@@ -22,7 +22,7 @@ import java.nio.file.Path;
 import org.eclipse.jetty.client.ContentResponse;
 import org.eclipse.jetty.client.FormRequestContent;
 import org.eclipse.jetty.client.HttpClient;
-import org.eclipse.jetty.ee10.servlet.ServletChannel;
+import org.eclipse.jetty.ee.servlet.ServletChannel;
 import org.eclipse.jetty.ee10.test.servlets.AlwaysUnsupportedServlet;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.http.HttpMethod;

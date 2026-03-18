@@ -14,13 +14,18 @@
 package org.eclipse.jetty.ee.webapp;
 
 import java.io.IOException;
+import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import jakarta.servlet.Servlet;
+import org.eclipse.jetty.ee.common.EnterpriseEditions;
 import org.eclipse.jetty.ee.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.xml.XmlParser;
@@ -97,7 +102,8 @@ public class WebDescriptor extends Descriptor
 
     protected static void addDescriptorCatalog(XmlParser xmlParser) throws IllegalStateException
     {
-        String catalogName = "catalog-%s.xml".formatted(ServletContextHandler.ENVIRONMENT.getName());
+        String servletApiVersion = EnterpriseEditions.getServletApiVersion();
+        String catalogName = "catalog_%s.xml".formatted(servletApiVersion);
         URL url = WebDescriptor.class.getResource(catalogName);
         if (url == null)
             throw new IllegalStateException("Catalog not found: %s/%s".formatted(WebDescriptor.class.getPackageName(), catalogName));

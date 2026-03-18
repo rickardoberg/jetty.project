@@ -1515,7 +1515,7 @@ public class ServletHandler extends Handler.Wrapper
             _servletContextHandler.destroyServlet(servlet);
     }
 
-    void destroyFilter(Filter filter)
+    public void destroyFilter(Filter filter)
     {
         if (_servletContextHandler != null)
             _servletContextHandler.destroyFilter(filter);

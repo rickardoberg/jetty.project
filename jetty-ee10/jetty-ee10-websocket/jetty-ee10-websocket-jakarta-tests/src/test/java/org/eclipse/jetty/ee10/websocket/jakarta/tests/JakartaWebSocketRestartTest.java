@@ -17,7 +17,7 @@ import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 import jakarta.websocket.Session;
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.websocket.jakarta.client.JakartaWebSocketClientContainer;
 import org.eclipse.jetty.ee10.websocket.jakarta.server.JakartaWebSocketServerContainer;

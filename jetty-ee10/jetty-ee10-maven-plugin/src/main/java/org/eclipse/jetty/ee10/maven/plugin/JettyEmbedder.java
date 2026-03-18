@@ -17,10 +17,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import org.eclipse.jetty.ee.webapp.Configurations;
 import org.eclipse.jetty.ee10.quickstart.QuickStartConfiguration;
 import org.eclipse.jetty.ee10.quickstart.QuickStartConfiguration.Mode;
 import org.eclipse.jetty.ee10.servlet.ServletHandler;
-import org.eclipse.jetty.ee10.webapp.Configurations;
 import org.eclipse.jetty.maven.AbstractJettyEmbedder;
 import org.eclipse.jetty.maven.ServerSupport;
 import org.eclipse.jetty.server.handler.ContextHandler;

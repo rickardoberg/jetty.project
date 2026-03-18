@@ -16,9 +16,9 @@ package org.eclipse.jetty.ee10.maven.plugin;
 import java.net.URI;
 
 import org.eclipse.jetty.ee.common.WebAppClassLoader;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
-import org.eclipse.jetty.ee10.webapp.WebInfConfiguration;
+import org.eclipse.jetty.ee.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
+import org.eclipse.jetty.ee.webapp.WebInfConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

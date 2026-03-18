@@ -33,9 +33,9 @@ import jakarta.security.auth.message.config.ServerAuthContext;
 import jakarta.security.auth.message.module.ServerAuthModule;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.eclipse.jetty.ee.servlet.security.authentication.LoginCallbackImpl;
 import org.eclipse.jetty.ee10.security.jaspi.JaspiMessageInfo;
 import org.eclipse.jetty.ee10.security.jaspi.callback.CredentialValidationCallback;
-import org.eclipse.jetty.ee10.servlet.security.authentication.LoginCallbackImpl;
 import org.eclipse.jetty.util.security.Credential;
 import org.eclipse.jetty.util.security.Password;
 

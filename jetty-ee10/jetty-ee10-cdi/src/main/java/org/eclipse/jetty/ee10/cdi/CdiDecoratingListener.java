@@ -13,8 +13,8 @@
 
 package org.eclipse.jetty.ee10.cdi;
 
-import org.eclipse.jetty.ee10.servlet.DecoratingListener;
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee.servlet.DecoratingListener;
+import org.eclipse.jetty.ee.servlet.ServletContextHandler;
 
 /**
  * A DecoratingListener that listens for "org.eclipse.jetty.cdi.decorator"

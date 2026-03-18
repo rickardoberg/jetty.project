@@ -55,7 +55,7 @@ public abstract class BaseHolder<T> extends AbstractLifeCycle implements Dumpabl
         return _source;
     }
 
-    AutoLock lock()
+    protected AutoLock lock()
     {
         return _lock.lock();
     }

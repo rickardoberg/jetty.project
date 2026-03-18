@@ -31,7 +31,7 @@ import jakarta.security.auth.message.config.ServerAuthContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.eclipse.jetty.ee10.servlet.ServletContextRequest;
+import org.eclipse.jetty.ee.servlet.ServletContextRequest;
 import org.eclipse.jetty.security.AuthenticationState;
 import org.eclipse.jetty.security.EmptyLoginService;
 import org.eclipse.jetty.security.IdentityService;

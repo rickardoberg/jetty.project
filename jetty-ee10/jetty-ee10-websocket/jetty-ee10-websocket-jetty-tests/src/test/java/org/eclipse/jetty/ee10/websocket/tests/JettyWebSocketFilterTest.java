@@ -32,7 +32,7 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpServlet;
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.eclipse.jetty.ee10.websocket.server.JettyWebSocketServerContainer;
@@ -211,7 +211,7 @@ public class JettyWebSocketFilterTest
         String idleTimeoutFilter2 = "3999";
         start((context, container) ->
         {
-            ServletContextHandler contextHandler = Objects.requireNonNull(ServletContextHandler.getServletContextHandler(context));
+            ServletContextHandler contextHandler = (ServletContextHandler)Objects.requireNonNull(ServletContextHandler.getServletContextHandler(context));
 
             // This filter replaces the default filter as we use the pre-defined name.
             FilterHolder filterHolder = new FilterHolder(WebSocketUpgradeFilter.class);
@@ -280,7 +280,7 @@ public class JettyWebSocketFilterTest
     {
         start((context, container) ->
         {
-            ServletContextHandler contextHandler = Objects.requireNonNull(ServletContextHandler.getServletContextHandler(context));
+            ServletContextHandler contextHandler = (ServletContextHandler)Objects.requireNonNull(ServletContextHandler.getServletContextHandler(context));
 
             // This custom filter replaces the default filter as we use the pre-defined name, and adds mapping in init().
             FilterHolder filterHolder = new FilterHolder(MyUpgradeFilter.class);

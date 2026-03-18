@@ -22,8 +22,8 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.nio.file.Path;
 
+import org.eclipse.jetty.ee.webapp.Configurations;
 import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
-import org.eclipse.jetty.ee10.webapp.Configurations;
 import org.eclipse.jetty.ee10.webapp.JettyWebXmlConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;

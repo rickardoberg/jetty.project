@@ -22,16 +22,16 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.eclipse.jetty.ee.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.FragmentConfiguration;
+import org.eclipse.jetty.ee.webapp.JmxConfiguration;
+import org.eclipse.jetty.ee.webapp.JndiConfiguration;
+import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
+import org.eclipse.jetty.ee.webapp.WebAppConfiguration;
 import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee10.plus.webapp.EnvConfiguration;
 import org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.FragmentConfiguration;
 import org.eclipse.jetty.ee10.webapp.JettyWebXmlConfiguration;
-import org.eclipse.jetty.ee10.webapp.JmxConfiguration;
-import org.eclipse.jetty.ee10.webapp.JndiConfiguration;
-import org.eclipse.jetty.ee10.webapp.MetaInfConfiguration;
-import org.eclipse.jetty.ee10.webapp.WebAppConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.webapp.WebInfConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebXmlConfiguration;
@@ -155,6 +155,8 @@ public class WebAppTester extends ContainerLifeCycle
             _context.setContextPath(contextPath);
             _context.setBaseResourceAsPath(_context.getResourceFactory().newResource(_contextDir).getPath());
 
+            AnnotationConfiguration annotationConfiguration = new AnnotationConfiguration();
+            PlusConfiguration plusConfiguration = new PlusConfiguration();
             _context.setConfigurations(new Configuration[]
             {
                 new JmxConfiguration(),
@@ -163,8 +165,8 @@ public class WebAppTester extends ContainerLifeCycle
                 new MetaInfConfiguration(),
                 new FragmentConfiguration(),
                 new EnvConfiguration(),
-                new PlusConfiguration(),
-                new AnnotationConfiguration(),
+                plusConfiguration,
+                annotationConfiguration,
                 new JndiConfiguration(),
                 new WebAppConfiguration(),
                 new JettyWebXmlConfiguration()

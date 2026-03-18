@@ -17,13 +17,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NameNotFoundException;
 
+import org.eclipse.jetty.ee.webapp.AbstractConfiguration;
+import org.eclipse.jetty.ee.webapp.FragmentConfiguration;
+import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.plus.jndi.Transaction;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee10.webapp.AbstractConfiguration;
-import org.eclipse.jetty.ee10.webapp.FragmentConfiguration;
 import org.eclipse.jetty.ee10.webapp.JettyWebXmlConfiguration;
-import org.eclipse.jetty.ee10.webapp.MetaInfConfiguration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.webapp.WebXmlConfiguration;
 import org.eclipse.jetty.plus.annotation.InjectionCollection;
 import org.eclipse.jetty.plus.annotation.LifeCycleCallbackCollection;

@@ -237,7 +237,7 @@ public class FilterMapping implements Dumpable
     /**
      * @param holder The holder to set.
      */
-    void setFilterHolder(FilterHolder holder)
+    public void setFilterHolder(FilterHolder holder)
     {
         _holder = Objects.requireNonNull(holder);
         setFilterName(holder.getName());

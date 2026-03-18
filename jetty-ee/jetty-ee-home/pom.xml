@@ -84,10 +84,6 @@
       <artifactId>jetty-ee-servlet</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jetty.ee</groupId>
-      <artifactId>jetty-ee-servlets</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.eclipse.jetty.ee.demos</groupId>
       <artifactId>jetty-ee-demo-jetty-websocket-webapp</artifactId>
       <version>${project.version}</version>

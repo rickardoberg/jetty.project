@@ -16,7 +16,7 @@ package org.eclipse.jetty.ee10.websocket.jakarta.tests.server;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.websocket.jakarta.tests.WSServer;
 import org.eclipse.jetty.ee10.websocket.jakarta.tests.WebSocketTester;
 import org.eclipse.jetty.ee10.websocket.jakarta.tests.server.sockets.echo.BasicEchoSocket;

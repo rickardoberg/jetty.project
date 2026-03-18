@@ -15,10 +15,10 @@ package org.eclipse.jetty.ee10.maven.plugin;
 
 import java.nio.file.Path;
 
+import org.eclipse.jetty.ee.webapp.Configurations;
 import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee10.quickstart.QuickStartConfiguration;
 import org.eclipse.jetty.ee10.quickstart.QuickStartConfiguration.Mode;
-import org.eclipse.jetty.ee10.webapp.Configurations;
 import org.eclipse.jetty.maven.ServerSupport;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;

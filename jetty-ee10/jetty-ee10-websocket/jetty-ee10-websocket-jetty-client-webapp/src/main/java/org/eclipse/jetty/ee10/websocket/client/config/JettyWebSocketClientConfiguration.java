@@ -13,10 +13,10 @@
 
 package org.eclipse.jetty.ee10.websocket.client.config;
 
-import org.eclipse.jetty.ee10.webapp.AbstractConfiguration;
-import org.eclipse.jetty.ee10.webapp.FragmentConfiguration;
-import org.eclipse.jetty.ee10.webapp.MetaInfConfiguration;
-import org.eclipse.jetty.ee10.webapp.WebAppConfiguration;
+import org.eclipse.jetty.ee.webapp.AbstractConfiguration;
+import org.eclipse.jetty.ee.webapp.FragmentConfiguration;
+import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
+import org.eclipse.jetty.ee.webapp.WebAppConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebInfConfiguration;
 import org.eclipse.jetty.ee10.webapp.WebXmlConfiguration;
 

@@ -63,11 +63,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jetty.ee</groupId>
-      <artifactId>jetty-ee-servlets</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.eclipse.jetty.fcgi</groupId>
       <artifactId>jetty-fcgi-server</artifactId>
       <scope>test</scope>

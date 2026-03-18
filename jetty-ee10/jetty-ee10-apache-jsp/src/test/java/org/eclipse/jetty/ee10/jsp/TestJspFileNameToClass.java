@@ -13,7 +13,7 @@
 
 package org.eclipse.jetty.ee10.jsp;
 
-import org.eclipse.jetty.ee10.servlet.ServletHolder;
+import org.eclipse.jetty.ee.servlet.ServletHolder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

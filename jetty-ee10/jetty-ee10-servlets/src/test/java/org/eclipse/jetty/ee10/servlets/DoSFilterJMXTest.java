@@ -21,7 +21,7 @@ import javax.management.MBeanServer;
 import javax.management.ObjectName;
 
 import jakarta.servlet.DispatcherType;
-import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee.servlet.FilterHolder;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.eclipse.jetty.jmx.MBeanContainer;
 import org.eclipse.jetty.server.Connector;

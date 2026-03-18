@@ -20,11 +20,11 @@ import javax.naming.InitialContext;
 import javax.naming.Name;
 
 import org.eclipse.jetty.ee.common.WebAppClassLoader;
+import org.eclipse.jetty.ee.webapp.Configuration;
+import org.eclipse.jetty.ee.webapp.Descriptor;
+import org.eclipse.jetty.ee.webapp.FragmentDescriptor;
+import org.eclipse.jetty.ee.webapp.Origin;
 import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
-import org.eclipse.jetty.ee10.webapp.Configuration;
-import org.eclipse.jetty.ee10.webapp.Descriptor;
-import org.eclipse.jetty.ee10.webapp.FragmentDescriptor;
-import org.eclipse.jetty.ee10.webapp.Origin;
 import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.ee10.webapp.WebDescriptor;
 import org.eclipse.jetty.plus.annotation.Injection;

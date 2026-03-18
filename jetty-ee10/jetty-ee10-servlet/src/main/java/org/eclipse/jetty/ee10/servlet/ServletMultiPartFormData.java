@@ -26,6 +26,8 @@ import java.util.concurrent.CompletableFuture;
 import jakarta.servlet.MultipartConfigElement;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.http.Part;
+import org.eclipse.jetty.ee.servlet.ServletApiRequest;
+import org.eclipse.jetty.ee.servlet.ServletContextRequest;
 import org.eclipse.jetty.http.HttpField;
 import org.eclipse.jetty.http.HttpHeader;
 import org.eclipse.jetty.http.MimeTypes;
@@ -177,7 +179,7 @@ public class ServletMultiPartFormData
                 else
                 {
                     // No existing core parts, so we need to configure the parser.
-                    ServletContextHandler contextHandler = servletContextRequest.getServletContext().getServletContextHandler();
+                    ServletContextHandler contextHandler = (ServletContextHandler)servletContextRequest.getServletContext().getServletContextHandler();
                     ByteBufferPool byteBufferPool = servletContextRequest.getComponents().getByteBufferPool();
                     ConnectionMetaData connectionMetaData = servletContextRequest.getConnectionMetaData();
                     Connection connection = connectionMetaData.getConnection();
