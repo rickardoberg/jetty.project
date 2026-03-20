@@ -31,6 +31,7 @@
     <module>jetty-ee-proxy</module>
     <module>jetty-ee-quickstart</module>
     <module>jetty-ee-servlet</module>
+    <module>jetty-ee-servlets</module>
     <module>jetty-ee-tests</module>
     <module>jetty-ee-webapp</module>
     <module>jetty-ee-websocket</module>

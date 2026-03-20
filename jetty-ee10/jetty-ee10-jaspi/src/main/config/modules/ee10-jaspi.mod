@@ -10,6 +10,7 @@ ee10
 security
 
 [depend]
+ee-jaspi
 ee10-security
 auth-config-factory
 

@@ -48,7 +48,7 @@ import org.eclipse.jetty.util.StringUtil;
 import org.eclipse.jetty.util.TypeUtil;
 
 /**
- * The Jetty implementation of the ee11 {@link HttpServletResponse} object.
+ * The Jetty implementation of the ee {@link HttpServletResponse} object.
  * This provides the bridge from the Servlet {@link HttpServletResponse} to the Jetty Core {@link Response}
  * via the {@link ServletContextResponse}.
  */

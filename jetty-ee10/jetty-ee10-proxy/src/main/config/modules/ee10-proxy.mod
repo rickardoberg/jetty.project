@@ -8,6 +8,7 @@ ee10
 
 [depend]
 client
+ee-proxy
 ee10-servlet
 
 [lib]

@@ -156,7 +156,7 @@ public class ClientAuthProxyTest
         });
     }
 
-    private void startProxy(AbstractProxyServlet servlet) throws Exception
+    private void startProxy(org.eclipse.jetty.ee.proxy.AbstractProxyServlet servlet) throws Exception
     {
         QueuedThreadPool proxyThreads = new QueuedThreadPool();
         proxyThreads.setName("proxy");

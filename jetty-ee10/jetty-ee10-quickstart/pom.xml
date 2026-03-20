@@ -18,6 +18,10 @@
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jetty.ee</groupId>
+      <artifactId>jetty-ee-quickstart</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.ee</groupId>
       <artifactId>jetty-ee-annotations</artifactId>
     </dependency>
     <dependency>

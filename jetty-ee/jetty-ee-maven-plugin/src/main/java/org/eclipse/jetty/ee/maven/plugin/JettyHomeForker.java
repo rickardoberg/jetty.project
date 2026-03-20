@@ -28,7 +28,7 @@ public class JettyHomeForker extends AbstractHomeForker
     public JettyHomeForker(String javaPath)
     {
         super(javaPath);
-        environment = "ee11";
+        environment = "ee";
     }
 
     public void setWebApp(MavenWebAppContext webApp)

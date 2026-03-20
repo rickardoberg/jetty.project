@@ -18,6 +18,7 @@ module org.eclipse.jetty.ee10.servlets
 {
     requires org.slf4j;
 
+    requires org.eclipse.jetty.ee.servlets;
     requires transitive jakarta.servlet;
 
     // Only required if using CloseableDoSFilter.

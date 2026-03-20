@@ -5,11 +5,11 @@
   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
   version="6.1">
 
-  <display-name>EE11 Demo Proxy WebApp</display-name>
+  <display-name>EE Demo Proxy WebApp</display-name>
 
   <servlet>
     <servlet-name>JavadocTransparentProxy</servlet-name>
-    <servlet-class>org.eclipse.jetty.ee11.proxy.ProxyServlet$Transparent</servlet-class>
+    <servlet-class>org.eclipse.jetty.ee.proxy.ProxyServlet$Transparent</servlet-class>
     <init-param>
       <param-name>proxyTo</param-name>
       <param-value>https://javadoc.jetty.org/</param-value>

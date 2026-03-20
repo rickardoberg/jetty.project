@@ -8,6 +8,7 @@ ee10
 
 [depend]
 server
+ee-quickstart
 ee10-annotations
 ee10-webapp
 ee10-plus

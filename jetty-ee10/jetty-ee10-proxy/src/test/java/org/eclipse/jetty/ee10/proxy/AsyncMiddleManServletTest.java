@@ -543,7 +543,7 @@ public class AsyncMiddleManServletTest
         });
         startClient();
 
-        try (StacklessLogging ignored = new StacklessLogging(proxyServlet._log))
+        try (StacklessLogging ignored = new StacklessLogging(proxyServlet.getLogger()))
         {
             byte[] bytes = new byte[1024];
             ContentResponse response = client.newRequest("localhost", serverConnector.getLocalPort())
@@ -581,7 +581,7 @@ public class AsyncMiddleManServletTest
         });
         startClient();
 
-        try (StacklessLogging ignored = new StacklessLogging(proxyServlet._log))
+        try (StacklessLogging ignored = new StacklessLogging(proxyServlet.getLogger()))
         {
             CountDownLatch latch = new CountDownLatch(1);
             AsyncRequestContent content = new AsyncRequestContent();
@@ -663,7 +663,7 @@ public class AsyncMiddleManServletTest
         });
         startClient();
 
-        try (StacklessLogging ignored = new StacklessLogging(proxyServlet._log))
+        try (StacklessLogging ignored = new StacklessLogging(proxyServlet.getLogger()))
         {
             ContentResponse response = client.newRequest("localhost", serverConnector.getLocalPort())
                 .timeout(5, TimeUnit.SECONDS)

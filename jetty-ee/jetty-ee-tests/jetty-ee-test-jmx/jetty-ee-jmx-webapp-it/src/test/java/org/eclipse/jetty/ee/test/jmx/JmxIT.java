@@ -65,7 +65,7 @@ public class JmxIT
         // although this test runs an embedded server.
         Path jettyBase = target.resolve("test-base");
         Path webapps = jettyBase.resolve("webapps");
-        Path war = webapps.resolve("jetty-ee11-jmx-webapp.war");
+        Path war = webapps.resolve("jetty-ee-jmx-webapp.war");
 
         _server = new Server(0);
         _server.setName("server");

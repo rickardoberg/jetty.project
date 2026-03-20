@@ -23,9 +23,11 @@ module org.eclipse.jetty.ee.websocket.jetty.server
 
     // Only required if using JMX.
     requires static org.eclipse.jetty.jmx;
+    requires jakarta.annotation;
 
     exports org.eclipse.jetty.ee.websocket.server;
     exports org.eclipse.jetty.ee.websocket.server.config;
+    exports org.eclipse.jetty.ee.websocket.server.internal to org.eclipse.jetty.ee10.websocket.jetty.server;
 
     provides jakarta.servlet.ServletContainerInitializer with
         org.eclipse.jetty.ee.websocket.server.config.JettyWebSocketServletContainerInitializer;

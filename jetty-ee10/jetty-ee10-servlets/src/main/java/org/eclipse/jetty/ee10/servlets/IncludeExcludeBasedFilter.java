@@ -13,22 +13,11 @@
 
 package org.eclipse.jetty.ee10.servlets;
 
-import java.util.Objects;
-
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterConfig;
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.eclipse.jetty.http.MimeTypes;
 import org.eclipse.jetty.http.pathmap.PathSpecSet;
-import org.eclipse.jetty.util.IncludeExclude;
 import org.eclipse.jetty.util.IncludeExcludeSet;
 import org.eclipse.jetty.util.StringUtil;
-import org.eclipse.jetty.util.URIUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Include Exclude Based Filter
@@ -63,111 +52,6 @@ import org.slf4j.LoggerFactory;
  * @see PathSpecSet
  * @see IncludeExcludeSet
  */
-public abstract class IncludeExcludeBasedFilter implements Filter
+public abstract class IncludeExcludeBasedFilter extends org.eclipse.jetty.ee.servlets.IncludeExcludeBasedFilter
 {
-    private final IncludeExclude<String> _mimeTypes = new IncludeExclude<>();
-    private final IncludeExclude<String> _httpMethods = new IncludeExclude<>();
-    private final IncludeExclude<String> _paths = new IncludeExclude<>(PathSpecSet.class);
-    private static final Logger LOG = LoggerFactory.getLogger(IncludeExcludeBasedFilter.class);
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException
-    {
-        final String includedPaths = filterConfig.getInitParameter("includedPaths");
-        final String excludedPaths = filterConfig.getInitParameter("excludedPaths");
-        final String includedMimeTypes = filterConfig.getInitParameter("includedMimeTypes");
-        final String excludedMimeTypes = filterConfig.getInitParameter("excludedMimeTypes");
-        final String includedHttpMethods = filterConfig.getInitParameter("includedHttpMethods");
-        final String excludedHttpMethods = filterConfig.getInitParameter("excludedHttpMethods");
-
-        if (includedPaths != null)
-        {
-            _paths.include(StringUtil.csvSplit(includedPaths));
-        }
-        if (excludedPaths != null)
-        {
-            _paths.exclude(StringUtil.csvSplit(excludedPaths));
-        }
-        if (includedMimeTypes != null)
-        {
-            _mimeTypes.include(StringUtil.csvSplit(includedMimeTypes));
-        }
-        if (excludedMimeTypes != null)
-        {
-            _mimeTypes.exclude(StringUtil.csvSplit(excludedMimeTypes));
-        }
-        if (includedHttpMethods != null)
-        {
-            _httpMethods.include(StringUtil.csvSplit(includedHttpMethods));
-        }
-        if (excludedHttpMethods != null)
-        {
-            _httpMethods.exclude(StringUtil.csvSplit(excludedHttpMethods));
-        }
-    }
-
-    protected String guessMimeType(HttpServletRequest httpRequest, HttpServletResponse httpResponse)
-    {
-        String contentType = httpResponse.getContentType();
-        LOG.debug("Content Type is: {}", contentType);
-
-        String mimeType;
-        if (contentType != null)
-        {
-            mimeType = MimeTypes.getContentTypeWithoutCharset(contentType);
-            LOG.debug("Mime Type is: {}", mimeType);
-        }
-        else
-        {
-            String requestUrl = httpRequest.getPathInfo();
-            mimeType = Objects.requireNonNullElse(httpRequest.getServletContext().getMimeType(requestUrl), "");
-            LOG.debug("Guessed mime type is {}", mimeType);
-        }
-
-        return mimeType;
-    }
-
-    protected boolean shouldFilter(HttpServletRequest httpRequest, HttpServletResponse httpResponse)
-    {
-        String httpMethod = httpRequest.getMethod();
-        LOG.debug("HTTP method is: {}", httpMethod);
-        if (!_httpMethods.test(httpMethod))
-        {
-            LOG.debug("should not apply filter because HTTP method does not match");
-            return false;
-        }
-
-        String mimeType = guessMimeType(httpRequest, httpResponse);
-
-        if (!_mimeTypes.test(mimeType))
-        {
-            LOG.debug("should not apply filter because mime type does not match");
-            return false;
-        }
-
-        ServletContext context = httpRequest.getServletContext();
-        String path = context == null ? httpRequest.getRequestURI() : URIUtil.addPaths(httpRequest.getServletPath(), httpRequest.getPathInfo());
-        LOG.debug("Path is: {}", path);
-        if (!_paths.test(path))
-        {
-            LOG.debug("should not apply filter because path does not match");
-            return false;
-        }
-
-        return true;
-    }
-
-    @Override
-    public void destroy()
-    {
-    }
-
-    @Override
-    public String toString()
-    {
-        return "filter configuration:\n" +
-            "paths:\n" + _paths + "\n" +
-            "mime types:\n" + _mimeTypes + "\n" +
-            "http methods:\n" + _httpMethods;
-    }
 }

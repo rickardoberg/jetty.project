@@ -48,7 +48,7 @@ public class EnvConfiguration extends AbstractConfiguration
     private static final Logger LOG = LoggerFactory.getLogger(EnvConfiguration.class);
 
     private static final String JETTY_ENV_BINDINGS = "org.eclipse.jetty.jndi.EnvConfiguration";
-    private static final String JETTY_EE11_ENV_XML_FILENAME = "jetty-ee11-env.xml";
+    private static final String JETTY_EE11_ENV_XML_FILENAME = "jetty-ee-env.xml";
     private static final String JETTY_ENV_XML_FILENAME = "jetty-env.xml";
 
     public EnvConfiguration()
@@ -245,7 +245,7 @@ public class EnvConfiguration extends AbstractConfiguration
     }
 
     /**
-     * Obtain a WEB-INF/jetty-ee11-env.xml, falling back to
+     * Obtain a WEB-INF/jetty-ee-env.xml, falling back to
      * looking for WEB-INF/jetty-env.xml.
      *
      * @param webInf the WEB-INF of the context to search

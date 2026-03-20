@@ -30,6 +30,8 @@ import java.util.Locale;
 import java.util.Random;
 
 import org.awaitility.Awaitility;
+import org.eclipse.jetty.ee.maven.plugin.JettyForkedChild;
+import org.eclipse.jetty.ee.maven.plugin.WebAppPropertyConverter;
 import org.eclipse.jetty.toolchain.test.FS;
 import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
 import org.eclipse.jetty.toolchain.test.jupiter.WorkDir;

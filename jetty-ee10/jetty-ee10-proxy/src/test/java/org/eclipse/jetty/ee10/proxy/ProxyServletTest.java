@@ -136,7 +136,7 @@ public class ProxyServletTest
     private Server proxy;
     private ServerConnector proxyConnector;
     private ServletContextHandler proxyContext;
-    private AbstractProxyServlet proxyServlet;
+    private org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServlet;
     private HttpClient client;
     private Proxy clientProxy;
 
@@ -175,7 +175,7 @@ public class ProxyServletTest
         startProxy(proxyServletClass.getConstructor().newInstance(), initParams);
     }
 
-    private void startProxy(AbstractProxyServlet proxyServlet, Map<String, String> initParams) throws Exception
+    private void startProxy(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServlet, Map<String, String> initParams) throws Exception
     {
         QueuedThreadPool proxyPool = new QueuedThreadPool();
         proxyPool.setName("proxy");
@@ -814,26 +814,26 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxy(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxy(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithPrefix(proxyServletClass, "http", "/proxy");
     }
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyTls(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyTls(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithPrefix(proxyServletClass, "https", "/proxy");
     }
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyWithRootContext(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyWithRootContext(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithPrefix(proxyServletClass, "http", "/");
     }
 
-    private void testTransparentProxyWithPrefix(AbstractProxyServlet proxyServletClass, String scheme, String prefix) throws Exception
+    private void testTransparentProxyWithPrefix(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass, String scheme, String prefix) throws Exception
     {
         final String target = "/test";
         startServer(new HttpServlet()
@@ -867,33 +867,33 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyWithQuery(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyWithQuery(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithQuery(proxyServletClass, "/foo", "/proxy", "/test");
     }
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyEmptyContextWithQuery(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyEmptyContextWithQuery(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithQuery(proxyServletClass, "", "/proxy", "/test");
     }
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyEmptyTargetWithQuery(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyEmptyTargetWithQuery(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithQuery(proxyServletClass, "/bar", "/proxy", "");
     }
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyEmptyContextEmptyTargetWithQuery(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyEmptyContextEmptyTargetWithQuery(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         testTransparentProxyWithQuery(proxyServletClass, "", "/proxy", "");
     }
 
-    private void testTransparentProxyWithQuery(AbstractProxyServlet proxyServletClass, String proxyToContext, String prefix, String target) throws Exception
+    private void testTransparentProxyWithQuery(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass, String proxyToContext, String prefix, String target) throws Exception
     {
         final String query = "a=1&b=2";
         startServer(new HttpServlet()
@@ -937,7 +937,7 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyWithQueryWithSpaces(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyWithQueryWithSpaces(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         final String target = "/test";
         final String query = "a=1&b=2&c=1234%205678&d=hello+world";
@@ -979,7 +979,7 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyWithoutPrefix(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyWithoutPrefix(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         final String target = "/test";
         startServer(new HttpServlet()
@@ -1009,7 +1009,7 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testTransparentProxyEmptyHeaderValue(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testTransparentProxyEmptyHeaderValue(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         String emptyHeaderName = "X-Empty";
         startServer(new EmptyHttpServlet()
@@ -1791,7 +1791,7 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testServerResponseHeadersTooLargeForServerConfiguration(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testServerResponseHeadersTooLargeForServerConfiguration(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         int maxResponseHeadersSize = 256;
         httpConfig.setResponseHeaderSize(maxResponseHeadersSize);
@@ -1819,7 +1819,7 @@ public class ProxyServletTest
 
     @ParameterizedTest
     @MethodSource("transparentImpls")
-    public void testServerResponseHeadersTooLargeForProxyConfiguration(AbstractProxyServlet proxyServletClass) throws Exception
+    public void testServerResponseHeadersTooLargeForProxyConfiguration(org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServletClass) throws Exception
     {
         int maxResponseHeadersSize = 256;
         startServer(new HttpServlet()

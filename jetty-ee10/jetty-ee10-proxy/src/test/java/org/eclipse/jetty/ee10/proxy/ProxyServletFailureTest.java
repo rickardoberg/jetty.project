@@ -75,22 +75,22 @@ public class ProxyServletFailureTest
     private HttpClient client;
     private Server proxy;
     private ServerConnector proxyConnector;
-    private ProxyServlet proxyServlet;
+    private org.eclipse.jetty.ee.proxy.ProxyServlet proxyServlet;
     private Server server;
     private ServerConnector serverConnector;
 
-    private void prepareProxy(Class<? extends ProxyServlet> proxyServletClass) throws Exception
+    private void prepareProxy(Class<? extends org.eclipse.jetty.ee.proxy.ProxyServlet> proxyServletClass) throws Exception
     {
         prepareProxy(proxyServletClass, new HashMap<>());
     }
 
-    private void prepareProxy(Class<? extends ProxyServlet> proxyServletClass, Map<String, String> initParams) throws Exception
+    private void prepareProxy(Class<? extends org.eclipse.jetty.ee.proxy.ProxyServlet> proxyServletClass, Map<String, String> initParams) throws Exception
     {
         proxyServlet = proxyServletClass.getDeclaredConstructor().newInstance();
         prepareProxy(proxyServlet, initParams);
     }
 
-    private void prepareProxy(ProxyServlet proxyServlet, Map<String, String> initParams) throws Exception
+    private void prepareProxy(org.eclipse.jetty.ee.proxy.ProxyServlet proxyServlet, Map<String, String> initParams) throws Exception
     {
         QueuedThreadPool executor = new QueuedThreadPool();
         executor.setName("proxy");
@@ -262,7 +262,7 @@ public class ProxyServletFailureTest
     {
         final byte[] content = new byte[]{'C', '0', 'F', 'F', 'E', 'E'};
         int expected;
-        ProxyServlet proxyServlet;
+        org.eclipse.jetty.ee.proxy.ProxyServlet proxyServlet;
 
         if (proxyServletClass.isAssignableFrom(AsyncProxyServlet.class))
         {

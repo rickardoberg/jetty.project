@@ -13,7 +13,6 @@
 
 package org.eclipse.jetty.ee10.cdi;
 
-import org.eclipse.jetty.ee.webapp.AbstractConfiguration;
 import org.eclipse.jetty.ee10.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
 
@@ -25,7 +24,7 @@ import org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
  * the webapp to provide their own.
  * </p>
  */
-public class CdiConfiguration extends AbstractConfiguration
+public class CdiConfiguration extends org.eclipse.jetty.ee.cdi.CdiConfiguration
 {
     public CdiConfiguration()
     {

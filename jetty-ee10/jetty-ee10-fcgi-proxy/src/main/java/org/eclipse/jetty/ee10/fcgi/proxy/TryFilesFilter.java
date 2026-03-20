@@ -13,23 +13,7 @@
 
 package org.eclipse.jetty.ee10.fcgi.proxy;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.eclipse.jetty.util.StringUtil;
 
 /**
  * Inspired by nginx's try_files functionality.
@@ -61,78 +45,6 @@ import org.eclipse.jetty.util.StringUtil;
  *
  * @see FastCGIProxyServlet
  */
-public class TryFilesFilter implements Filter
+public class TryFilesFilter extends org.eclipse.jetty.ee.fcgi.proxy.TryFilesFilter
 {
-    public static final String FILES_INIT_PARAM = "files";
-
-    private String[] files;
-
-    @Override
-    public void init(FilterConfig config) throws ServletException
-    {
-        String param = config.getInitParameter(FILES_INIT_PARAM);
-        if (param == null)
-            throw new ServletException(String.format("Missing mandatory parameter '%s'", FILES_INIT_PARAM));
-        files = param.split(" ");
-    }
-
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException
-    {
-        HttpServletRequest httpRequest = (HttpServletRequest)request;
-        HttpServletResponse httpResponse = (HttpServletResponse)response;
-
-        for (int i = 0; i < files.length - 1; ++i)
-        {
-            String file = files[i];
-            String resolved = resolve(httpRequest, file);
-
-            URL url = request.getServletContext().getResource(resolved);
-            if (url == null)
-                continue;
-
-            if (Files.isReadable(toPath(url)))
-            {
-                chain.doFilter(httpRequest, httpResponse);
-                return;
-            }
-        }
-
-        // The last one is the fallback
-        fallback(httpRequest, httpResponse, chain, files[files.length - 1]);
-    }
-
-    private Path toPath(URL url) throws IOException
-    {
-        try
-        {
-            return Paths.get(url.toURI());
-        }
-        catch (URISyntaxException x)
-        {
-            throw new IOException(x);
-        }
-    }
-
-    protected void fallback(HttpServletRequest request, HttpServletResponse response, FilterChain chain, String fallback) throws IOException, ServletException
-    {
-        String resolved = resolve(request, fallback);
-        request.getServletContext().getRequestDispatcher(resolved).forward(request, response);
-    }
-
-    private String resolve(HttpServletRequest request, String value)
-    {
-        String path = request.getServletPath();
-        String info = request.getPathInfo();
-        if (info != null)
-            path += info;
-        if (!path.startsWith("/"))
-            path = "/" + path;
-        return StringUtil.replace(value, "$path", path);
-    }
-
-    @Override
-    public void destroy()
-    {
-    }
 }

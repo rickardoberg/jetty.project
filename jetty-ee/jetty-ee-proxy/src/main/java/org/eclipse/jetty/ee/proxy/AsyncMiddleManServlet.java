@@ -200,7 +200,7 @@ public class AsyncMiddleManServlet extends AbstractProxyServlet
         }
     }
 
-    int readClientRequestContent(ServletInputStream input, byte[] buffer) throws IOException
+    protected int readClientRequestContent(ServletInputStream input, byte[] buffer) throws IOException
     {
         return input.read(buffer);
     }

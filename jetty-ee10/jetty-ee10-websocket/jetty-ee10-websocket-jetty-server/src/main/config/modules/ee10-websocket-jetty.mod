@@ -14,4 +14,3 @@ websocket-jetty
 [lib]
 lib/ee10-websocket/jetty-ee10-websocket-jetty-server-${jetty.version}.jar
 lib/ee10-websocket/jetty-ee10-websocket-servlet-${jetty.version}.jar
-

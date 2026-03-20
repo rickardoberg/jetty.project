@@ -102,7 +102,7 @@ import org.slf4j.LoggerFactory;
 import static org.eclipse.jetty.ee.servlet.Dispatcher.WRAPPED_REQUEST_ATTRIBUTE;
 
 /**
- * The Jetty implementation of the ee11 {@link HttpServletRequest} object.
+ * The Jetty implementation of the ee {@link HttpServletRequest} object.
  * This provides the bridge from Servlet {@link HttpServletRequest} to the Jetty Core {@link Request}
  * via the {@link ServletContextRequest}.
  */

@@ -13,9 +13,6 @@
 
 package org.eclipse.jetty.ee10.servlet;
 
-import org.eclipse.jetty.ee.servlet.ErrorHandler;
-import org.eclipse.jetty.ee.servlet.ServletHandler;
-import org.eclipse.jetty.ee.servlet.SessionHandler;
 import org.eclipse.jetty.security.SecurityHandler;
 import org.eclipse.jetty.util.annotation.ManagedObject;
 import org.eclipse.jetty.util.component.Environment;
@@ -78,5 +75,27 @@ public class ServletContextHandler extends org.eclipse.jetty.ee.servlet.ServletC
         super(contextPath, sessionHandler, securityHandler, servletHandler, errorHandler, options);
     }
 
+    @Override
+    public ServletHandler getServletHandler()
+    {
+        return (ServletHandler)super.getServletHandler();
+    }
 
+    @Override
+    public SessionHandler getSessionHandler()
+    {
+        return (SessionHandler)super.getSessionHandler();
+    }
+
+    @Override
+    protected org.eclipse.jetty.ee.servlet.SessionHandler newSessionHandler()
+    {
+        return new SessionHandler();
+    }
+
+    @Override
+    protected org.eclipse.jetty.ee.servlet.ServletHandler newServletHandler()
+    {
+        return new ServletHandler();
+    }
 }

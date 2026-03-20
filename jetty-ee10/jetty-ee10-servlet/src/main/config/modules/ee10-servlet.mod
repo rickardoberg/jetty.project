@@ -9,6 +9,7 @@ ee10
 [depend]
 server
 sessions
+ee-servlet
 
 [lib]
 lib/@jakarta.servlet:jakarta.servlet-api@

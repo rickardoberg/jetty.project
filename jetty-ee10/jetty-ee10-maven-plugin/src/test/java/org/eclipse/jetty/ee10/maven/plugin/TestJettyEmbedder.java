@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.jetty.ee.maven.plugin.JettyEmbedder;
 import org.eclipse.jetty.ee.servlet.ListenerHolder;
 import org.eclipse.jetty.maven.MavenServerConnector;
 import org.eclipse.jetty.maven.ServerSupport;

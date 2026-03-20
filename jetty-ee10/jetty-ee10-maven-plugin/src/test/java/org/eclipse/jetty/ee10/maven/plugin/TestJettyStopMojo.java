@@ -25,6 +25,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.awaitility.Awaitility;
+import org.eclipse.jetty.ee.maven.plugin.JettyStopMojo;
 import org.eclipse.jetty.server.ShutdownService;
 import org.eclipse.jetty.toolchain.test.jupiter.WorkDir;
 import org.eclipse.jetty.toolchain.test.jupiter.WorkDirExtension;

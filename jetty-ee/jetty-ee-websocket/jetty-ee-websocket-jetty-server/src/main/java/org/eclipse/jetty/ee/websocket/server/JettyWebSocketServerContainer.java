@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
+import jakarta.annotation.Nonnull;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -48,6 +49,8 @@ import org.eclipse.jetty.websocket.core.Configuration;
 import org.eclipse.jetty.websocket.core.WebSocketComponents;
 import org.eclipse.jetty.websocket.core.WebSocketConstants;
 import org.eclipse.jetty.websocket.core.exception.WebSocketException;
+import org.eclipse.jetty.websocket.core.server.ServerUpgradeRequest;
+import org.eclipse.jetty.websocket.core.server.ServerUpgradeResponse;
 import org.eclipse.jetty.websocket.core.server.WebSocketCreator;
 import org.eclipse.jetty.websocket.core.server.WebSocketMappings;
 import org.eclipse.jetty.websocket.core.server.WebSocketNegotiator;
@@ -129,7 +132,7 @@ public class JettyWebSocketServerContainer extends ContainerLifeCycle implements
      * @param webSocketMappings the {@link WebSocketMappings} that this container belongs to
      * @param executor the {@link Executor} to use
      */
-    JettyWebSocketServerContainer(ServletContextHandler contextHandler, WebSocketMappings webSocketMappings, WebSocketComponents components, Executor executor)
+    protected JettyWebSocketServerContainer(ServletContextHandler contextHandler, WebSocketMappings webSocketMappings, WebSocketComponents components, Executor executor)
     {
         this.contextHandler = contextHandler;
         this.webSocketMappings = webSocketMappings;
@@ -153,7 +156,7 @@ public class JettyWebSocketServerContainer extends ContainerLifeCycle implements
         {
             try
             {
-                Object webSocket = creator.createWebSocket(new DelegatedServerUpgradeRequest(req), new DelegatedServerUpgradeResponse(resp));
+                Object webSocket = creator.createWebSocket(newDelegatedServerUpgradeRequest(req), newDelegatedServerUpgradeResponse(resp));
                 if (webSocket == null)
                     cb.succeeded();
                 return webSocket;
@@ -167,6 +170,16 @@ public class JettyWebSocketServerContainer extends ContainerLifeCycle implements
             }
         };
         webSocketMappings.addMapping(ps, coreCreator, frameHandlerFactory, customizer);
+    }
+
+    protected DelegatedServerUpgradeResponse newDelegatedServerUpgradeResponse(ServerUpgradeResponse resp)
+    {
+        return new DelegatedServerUpgradeResponse(resp);
+    }
+
+    protected DelegatedServerUpgradeRequest newDelegatedServerUpgradeRequest(ServerUpgradeRequest req)
+    {
+        return new DelegatedServerUpgradeRequest(req);
     }
 
     public void addMapping(String pathSpec, final Class<?> endpointClass)
@@ -206,7 +219,7 @@ public class JettyWebSocketServerContainer extends ContainerLifeCycle implements
         {
             try
             {
-                Object webSocket = creator.createWebSocket(new DelegatedServerUpgradeRequest(req), new DelegatedServerUpgradeResponse(resp));
+                Object webSocket = creator.createWebSocket(newDelegatedServerUpgradeRequest(req), newDelegatedServerUpgradeResponse(resp));
                 if (webSocket == null)
                     cb.succeeded();
                 return webSocket;

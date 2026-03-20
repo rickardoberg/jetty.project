@@ -8,6 +8,7 @@ ee10
 
 [depend]
 jndi
+ee-jndi
 
 [lib]
 lib/jetty-ee10-jndi-${jetty.version}.jar

@@ -275,7 +275,7 @@ public class WebAppClassLoaderTest
 
         String[] oldSysC = _context.getProtectedClasses();
         String[] newSysC = new String[oldSysC.length + 1];
-        newSysC[0] = "org.eclipse.jetty.ee11.webapp.";
+        newSysC[0] = "org.eclipse.jetty.ee.webapp.";
         System.arraycopy(oldSysC, 0, newSysC, 1, oldSysC.length);
         _context.setProtectedClassMatcher(new ClassMatcher(newSysC));
 
@@ -306,7 +306,7 @@ public class WebAppClassLoaderTest
     public void testSystemServerClass() throws Exception
     {
         _context.getHiddenClassMatcher().add("org.eclipse.jetty.util.statistic.RateCounter");
-        _context.getProtectedClassMatcher().add("org.eclipse.jetty.ee11.webapp.");
+        _context.getProtectedClassMatcher().add("org.eclipse.jetty.ee.webapp.");
 
         assertCanLoadClass("org.acme.webapp.ClassInJarA");
         assertCanLoadClass("org.acme.webapp.ClassInJarB");

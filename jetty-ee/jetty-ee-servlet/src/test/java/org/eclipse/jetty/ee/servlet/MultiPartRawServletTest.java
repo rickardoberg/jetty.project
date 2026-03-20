@@ -57,7 +57,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 /**
- * Test various raw Multipart Requests against the ee11 servlet implementation
+ * Test various raw Multipart Requests against the ee servlet implementation
  */
 public class MultiPartRawServletTest
 {

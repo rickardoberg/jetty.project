@@ -35,7 +35,6 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
@@ -84,7 +83,6 @@ import org.eclipse.jetty.server.FormFields;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Response;
-import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.handler.ContextRequest;
@@ -134,7 +132,7 @@ import static jakarta.servlet.ServletContext.TEMPDIR;
 public class ServletContextHandler extends ContextHandler
 {
     private static final Logger LOG = LoggerFactory.getLogger(ServletContextHandler.class);
-    public static final Environment ENVIRONMENT = Environment.ensure("ee11", ServletContextHandler.class);
+    public static final Environment ENVIRONMENT = Environment.ensure("ee", ServletContextHandler.class);
     /**
      * @deprecated Use {@link ServletContextHandler#ENVIRONMENT} instead.
      */

@@ -95,9 +95,9 @@ public class JakartaClientShutdownWithServerWebAppTest
 
         // Copy over the individual jars required for Jakarta WebSocket.
         app.createWebInf();
-        app.copyLib(JakartaWebSocketClientContainerProvider.class, "jetty-ee11-websocket-jakarta-client.jar");
-        app.copyLib(JakartaWebSocketShutdownContainer.class, "jetty-ee11-websocket-jakarta-client-webapp.jar");
-        app.copyLib(JakartaWebSocketContainer.class, "jetty-ee11-websocket-jakarta-common.jar");
+        app.copyLib(JakartaWebSocketClientContainerProvider.class, "jetty-ee-websocket-jakarta-client.jar");
+        app.copyLib(JakartaWebSocketShutdownContainer.class, "jetty-ee-websocket-jakarta-client-webapp.jar");
+        app.copyLib(JakartaWebSocketContainer.class, "jetty-ee-websocket-jakarta-common.jar");
         app.copyLib(ContainerLifeCycle.class, "jetty-util.jar");
         app.copyLib(CoreClientUpgradeRequest.class, "jetty-websocket-core-client.jar");
         app.copyLib(WebSocketComponents.class, "jetty-websocket-core-common.jar");

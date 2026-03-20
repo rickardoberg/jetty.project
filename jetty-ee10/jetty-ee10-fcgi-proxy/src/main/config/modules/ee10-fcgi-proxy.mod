@@ -9,6 +9,7 @@ fcgi
 proxy
 
 [depends]
+ee-fcgi-proxy
 fcgi
 
 [lib]

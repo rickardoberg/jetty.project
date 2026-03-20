@@ -72,7 +72,7 @@ public class EnvConfigurationTest
     @Test
     public void testWithJettyEEWebXml() throws Exception
     {
-        Path testWebappDir = MavenTestingUtils.getTargetPath("test-classes/webapp-with-jetty-ee11-env-xml");
+        Path testWebappDir = MavenTestingUtils.getTargetPath("test-classes/webapp-with-jetty-ee-env-xml");
         assertTrue(Files.exists(testWebappDir));
 
         WebAppContext context = new WebAppContext();

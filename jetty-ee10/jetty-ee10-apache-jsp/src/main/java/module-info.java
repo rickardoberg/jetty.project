@@ -16,15 +16,7 @@ module org.eclipse.jetty.ee10.apache.jsp
     requires java.xml;
     requires transitive jakarta.servlet;
     requires org.eclipse.jetty.util;
+    requires transitive org.eclipse.jetty.ee.apache.jsp;
     requires transitive org.mortbay.apache.jasper;
     requires org.slf4j;
-
-    exports org.eclipse.jetty.ee10.apache.jsp;
-    exports org.eclipse.jetty.ee10.jsp;
-
-    provides org.apache.juli.logging.Log with
-        org.eclipse.jetty.ee10.apache.jsp.JuliLog;
-
-    provides jakarta.servlet.ServletContainerInitializer with
-        org.eclipse.jetty.ee10.apache.jsp.JettyJasperInitializer;
 }

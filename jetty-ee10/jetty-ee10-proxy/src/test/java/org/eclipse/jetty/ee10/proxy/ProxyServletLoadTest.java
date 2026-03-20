@@ -63,7 +63,7 @@ public class ProxyServletLoadTest
     private HttpClient client;
     private Server proxy;
     private ServerConnector proxyConnector;
-    private AbstractProxyServlet proxyServlet;
+    private org.eclipse.jetty.ee.proxy.AbstractProxyServlet proxyServlet;
     private Server server;
     private ServerConnector serverConnector;
 

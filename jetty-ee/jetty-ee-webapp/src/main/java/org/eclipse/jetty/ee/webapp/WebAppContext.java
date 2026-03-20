@@ -87,7 +87,7 @@ public class WebAppContext extends ServletContextHandler implements WebAppClassL
 {
     static final Logger LOG = LoggerFactory.getLogger(WebAppContext.class);
 
-    public static final String WEB_DEFAULTS_XML = "org/eclipse/jetty/ee11/webapp/webdefault-ee11.xml";
+    public static final String WEB_DEFAULTS_XML = "org/eclipse/jetty/ee/webapp/webdefault-ee.xml";
     /**
      * @deprecated use {@link WebAppClassLoading#PROTECTED_CLASSES_ATTRIBUTE} instead.
      */

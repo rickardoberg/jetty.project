@@ -715,7 +715,7 @@ public class SessionHandler extends AbstractSessionManager implements Handler.Si
     
     /**
      * Set Session cookie sameSite mode.
-     * In ee11 this is set as a generic session cookie attribute.
+     * In ee this is set as a generic session cookie attribute.
      *
      * @param sameSite The sameSite setting for Session cookies (or null for no sameSite setting)
      */

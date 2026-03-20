@@ -19,6 +19,7 @@ module org.eclipse.jetty.ee10.cdi
 {
     requires org.eclipse.jetty.ee10.annotations;
 
+    requires transitive org.eclipse.jetty.ee.cdi;
     requires transitive org.eclipse.jetty.ee10.servlet;
     requires transitive org.eclipse.jetty.ee10.webapp;
     requires static jakarta.cdi;
