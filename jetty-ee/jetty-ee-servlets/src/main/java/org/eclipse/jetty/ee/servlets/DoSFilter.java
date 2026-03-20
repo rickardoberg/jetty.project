@@ -137,7 +137,7 @@ public class DoSFilter implements Filter
     private static final long __DEFAULT_MAX_REQUEST_MS_INIT_PARAM = 30000L;
     private static final long __DEFAULT_MAX_IDLE_TRACKER_MS_INIT_PARAM = 30000L;
 
-    static final String MANAGED_ATTR_INIT_PARAM = "managedAttr";
+    public static final String MANAGED_ATTR_INIT_PARAM = "managedAttr";
     static final String MAX_REQUESTS_PER_S_INIT_PARAM = "maxRequestsPerSec";
     static final String DELAY_MS_INIT_PARAM = "delayMs";
     static final String THROTTLED_REQUESTS_INIT_PARAM = "throttledRequests";

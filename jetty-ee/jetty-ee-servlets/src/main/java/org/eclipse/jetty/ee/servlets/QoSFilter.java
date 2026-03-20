@@ -78,13 +78,13 @@ public class QoSFilter implements Filter
 {
     private static final Logger LOG = LoggerFactory.getLogger(QoSFilter.class);
 
-    static final int __DEFAULT_MAX_PRIORITY = 10;
+    public static final int __DEFAULT_MAX_PRIORITY = 10;
     static final int __DEFAULT_PASSES = 10;
     static final int __DEFAULT_WAIT_MS = 50;
     static final long __DEFAULT_TIMEOUT_MS = -1;
 
     static final String MANAGED_ATTR_INIT_PARAM = "managedAttr";
-    static final String MAX_REQUESTS_INIT_PARAM = "maxRequests";
+    public static final String MAX_REQUESTS_INIT_PARAM = "maxRequests";
     static final String MAX_PRIORITY_INIT_PARAM = "maxPriority";
     static final String MAX_WAIT_INIT_PARAM = "waitMs";
     static final String SUSPEND_INIT_PARAM = "suspendMs";
