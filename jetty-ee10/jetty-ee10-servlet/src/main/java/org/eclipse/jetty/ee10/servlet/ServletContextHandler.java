@@ -13,6 +13,12 @@
 
 package org.eclipse.jetty.ee10.servlet;
 
+import java.util.EnumSet;
+
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.Filter;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.http.HttpServlet;
 import org.eclipse.jetty.security.SecurityHandler;
 import org.eclipse.jetty.util.annotation.ManagedObject;
 import org.eclipse.jetty.util.component.Environment;
@@ -85,6 +91,36 @@ public class ServletContextHandler extends org.eclipse.jetty.ee.servlet.ServletC
     public SessionHandler getSessionHandler()
     {
         return (SessionHandler)super.getSessionHandler();
+    }
+
+    @Override
+    public ServletHolder addServlet(String className, String pathSpec)
+    {
+        return (ServletHolder)super.addServlet(className, pathSpec);
+    }
+
+    @Override
+    public ServletHolder addServlet(Class<? extends Servlet> servlet, String pathSpec)
+    {
+        return (ServletHolder)super.addServlet(servlet, pathSpec);
+    }
+
+    @Override
+    public ServletHolder addServlet(HttpServlet servlet, String pathSpec)
+    {
+        return (ServletHolder)super.addServlet(servlet, pathSpec);
+    }
+
+    @Override
+    public FilterHolder addFilter(String filterClass, String pathSpec, EnumSet<DispatcherType> dispatches)
+    {
+        return (FilterHolder)super.addFilter(filterClass, pathSpec, dispatches);
+    }
+
+    @Override
+    public FilterHolder addFilter(Filter filter, String pathSpec, EnumSet<DispatcherType> dispatches)
+    {
+        return (FilterHolder)super.addFilter(filter, pathSpec, dispatches);
     }
 
     @Override

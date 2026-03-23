@@ -13,6 +13,11 @@
 
 package org.eclipse.jetty.ee10.servlet;
 
+import java.util.EnumSet;
+
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.Filter;
+import org.eclipse.jetty.ee.servlet.Source;
 import org.eclipse.jetty.util.annotation.ManagedObject;
 
 /**
@@ -34,5 +39,17 @@ public class ServletHandler extends org.eclipse.jetty.ee.servlet.ServletHandler
     public ServletHandler()
     {
         super();
+    }
+
+    public FilterHolder addFilterWithMapping(Class<? extends Filter> filter, String pathSpec, EnumSet<DispatcherType> dispatches)
+    {
+        return (FilterHolder)super.addFilterWithMapping(filter, pathSpec, dispatches);
+    }
+
+
+    @Override
+    public org.eclipse.jetty.ee10.servlet.ServletHolder newServletHolder(Source source)
+    {
+        return new org.eclipse.jetty.ee10.servlet.ServletHolder(source);
     }
 }
