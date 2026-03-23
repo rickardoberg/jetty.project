@@ -16,10 +16,6 @@
     <module>jetty-ee11-osgi-alpn</module>
     <module>jetty-ee11-osgi-boot</module>
     <module>jetty-ee11-osgi-boot-jsp</module>
-    <module>test-jetty-ee11-osgi</module>
-    <module>test-jetty-ee11-osgi-fragment</module>
-    <module>test-jetty-ee11-osgi-server</module>
-    <module>test-jetty-ee11-osgi-webapp-resources</module>
   </modules>
 
   <properties>

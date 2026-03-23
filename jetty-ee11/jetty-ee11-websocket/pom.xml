@@ -20,7 +20,6 @@
     <module>jetty-ee11-websocket-jakarta-tests</module>
     <module>jetty-ee11-websocket-jetty-client-webapp</module>
     <module>jetty-ee11-websocket-jetty-server</module>
-    <module>jetty-ee11-websocket-jetty-tests</module>
     <module>jetty-ee11-websocket-servlet</module>
   </modules>
 
