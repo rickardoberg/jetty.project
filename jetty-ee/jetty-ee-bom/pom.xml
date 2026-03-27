@@ -10,12 +10,12 @@
 
   <artifactId>jetty-ee-bom</artifactId>
   <packaging>pom</packaging>
-  <name>EECommon :: BOM</name>
-  <description>Jetty EECommon APIs BOM artifact</description>
+  <name>EE :: BOM</name>
+  <description>Jetty EE APIs BOM artifact</description>
 
   <dependencyManagement>
     <dependencies>
-      <!-- Jetty EECommon Dependencies -->
+      <!-- Jetty EE Dependencies -->
       <dependency>
         <groupId>org.eclipse.jetty.ee</groupId>
         <artifactId>jetty-ee-annotations</artifactId>

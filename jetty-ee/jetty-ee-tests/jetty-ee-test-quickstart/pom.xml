@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-quickstart</artifactId>
-  <name>EECommon :: Tests :: Quick Start</name>
+  <name>EE :: Tests :: Quick Start</name>
   <description>Jetty Quick Start Test</description>
   <properties>
     <bundle-symbolic-name>${project.groupId}.tests.quickstart</bundle-symbolic-name>

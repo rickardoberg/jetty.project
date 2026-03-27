@@ -22,47 +22,10 @@ import org.eclipse.jetty.util.security.Credential;
  * Store a jetty Credential for a user so that it can be
  * validated by jaspi
  */
-public class CredentialValidationCallback implements Callback
+public class CredentialValidationCallback extends org.eclipse.jetty.ee.security.jaspi.callback.CredentialValidationCallback
 {
-    private Credential _credential;
-    private boolean _result;
-    private Subject _subject;
-    private String _userName;
-
     public CredentialValidationCallback(Subject subject, String userName, Credential credential)
     {
-        _subject = subject;
-        _userName = userName;
-        _credential = credential;
-    }
-
-    public Credential getCredential()
-    {
-        return _credential;
-    }
-
-    public void clearCredential()
-    {
-        _credential = null;
-    }
-
-    public boolean getResult()
-    {
-        return _result;
-    }
-
-    public javax.security.auth.Subject getSubject()
-    {
-        return _subject;
-    }
-
-    public java.lang.String getUsername()
-    {
-        return _userName;
-    }
-
-    public void setResult(boolean result)
-    {
-        _result = result;
+        super(subject, userName, credential);
     }
 }

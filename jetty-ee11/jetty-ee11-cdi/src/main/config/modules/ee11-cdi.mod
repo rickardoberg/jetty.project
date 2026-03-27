@@ -23,6 +23,7 @@ cdi
 cdi
 
 [depend]
+ee-cdi
 ee11-deploy
 
 [xml]

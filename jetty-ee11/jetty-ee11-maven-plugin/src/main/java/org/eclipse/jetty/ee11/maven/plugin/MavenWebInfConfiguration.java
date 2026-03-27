@@ -13,56 +13,12 @@
 
 package org.eclipse.jetty.ee11.maven.plugin;
 
-import java.net.URI;
-
-import org.eclipse.jetty.ee.common.WebAppClassLoader;
-import org.eclipse.jetty.ee11.webapp.Configuration;
-import org.eclipse.jetty.ee11.webapp.WebAppContext;
-import org.eclipse.jetty.ee11.webapp.WebInfConfiguration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * MavenWebInfConfiguration
  * <p>
  * WebInfConfiguration to take account of overlaid wars expressed as project dependencies and
  * potential configured via the maven-war-plugin.
  */
-public class MavenWebInfConfiguration extends WebInfConfiguration
+public class MavenWebInfConfiguration extends org.eclipse.jetty.ee.maven.plugin.MavenWebInfConfiguration
 {
-    private static final Logger LOG = LoggerFactory.getLogger(MavenWebInfConfiguration.class);
-
-    public MavenWebInfConfiguration()
-    {
-        super(new Builder()
-            .hide("org.apache.maven.",
-                "org.codehaus.plexus.",
-                "jakarta.enterprise.",
-                "javax.decorator."));
-    }
-
-    @Override
-    public Class<? extends Configuration> replaces()
-    {
-        return WebInfConfiguration.class;
-    }
-
-    @Override
-    public void configure(WebAppContext context) throws Exception
-    {
-        MavenWebAppContext jwac = (MavenWebAppContext)context;
-
-        //put the classes dir and all dependencies into the classpath
-        if (jwac.getClassPathUris() != null && context.getClassLoader() instanceof WebAppClassLoader loader)
-        {
-            if (LOG.isDebugEnabled())
-                LOG.debug("Setting up classpath ...");
-            for (URI uri : jwac.getClassPathUris())
-            {
-                loader.addClassPath(uri.toASCIIString());
-            }
-        }
-
-        super.configure(context);
-    }
 }

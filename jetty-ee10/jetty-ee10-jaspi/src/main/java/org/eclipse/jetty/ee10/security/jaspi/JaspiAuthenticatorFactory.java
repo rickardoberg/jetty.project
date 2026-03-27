@@ -33,7 +33,4 @@ import org.eclipse.jetty.security.Authenticator;
  */
 public class JaspiAuthenticatorFactory extends org.eclipse.jetty.ee.security.jaspi.JaspiAuthenticatorFactory
 {
-    public JaspiAuthenticatorFactory()
-    {
-    }
 }

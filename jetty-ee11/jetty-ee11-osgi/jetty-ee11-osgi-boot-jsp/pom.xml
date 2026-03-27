@@ -25,6 +25,10 @@
     </dependency>
     <!-- JSP Deps -->
     <dependency>
+      <groupId>org.eclipse.jetty.ee.osgi</groupId>
+      <artifactId>jetty-ee-osgi-boot-jsp</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.jetty.ee11</groupId>
       <artifactId>jetty-ee11-apache-jsp</artifactId>
     </dependency>

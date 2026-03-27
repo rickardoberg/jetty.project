@@ -19,5 +19,4 @@ package org.eclipse.jetty.ee10.servlet;
  */
 public class ErrorPageErrorHandler extends org.eclipse.jetty.ee.servlet.ErrorPageErrorHandler
 {
-
 }

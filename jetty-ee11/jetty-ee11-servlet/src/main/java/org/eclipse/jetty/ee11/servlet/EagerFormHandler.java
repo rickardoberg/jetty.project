@@ -13,16 +13,8 @@
 
 package org.eclipse.jetty.ee11.servlet;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.eclipse.jetty.http.HttpHeader;
 import org.eclipse.jetty.http.MimeTypes;
-import org.eclipse.jetty.server.FormFields;
 import org.eclipse.jetty.server.Handler;
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.util.Callback;
-import org.eclipse.jetty.util.Fields;
-import org.eclipse.jetty.util.Promise;
 
 /**
  * Handler to eagerly and asynchronously read and parse {@link MimeTypes.Type#FORM_ENCODED} and
@@ -31,127 +23,15 @@ import org.eclipse.jetty.util.Promise;
  * @deprecated use {@link org.eclipse.jetty.server.handler.EagerContentHandler}
  */
 @Deprecated(forRemoval = true, since = "12.1.0")
-public class EagerFormHandler extends Handler.Wrapper
+public class EagerFormHandler extends org.eclipse.jetty.ee.servlet.EagerFormHandler
 {
     public EagerFormHandler()
     {
-        this(null);
+        super();
     }
 
     public EagerFormHandler(Handler handler)
     {
         super(handler);
-    }
-
-    @Override
-    public boolean handle(Request request, org.eclipse.jetty.server.Response response, Callback callback) throws Exception
-    {
-        String contentType = request.getHeaders().get(HttpHeader.CONTENT_TYPE);
-        if (contentType == null)
-            return super.handle(request, response, callback);
-
-        MimeTypes.Type mimeType = MimeTypes.getBaseType(contentType);
-        if (mimeType == null)
-            return super.handle(request, response, callback);
-
-        return switch (mimeType)
-        {
-            case FORM_ENCODED -> handleFormFields(request, response, callback);
-            case MULTIPART_FORM_DATA -> handleMultiPartFormData(request, contentType, response, callback);
-            default -> super.handle(request, response, callback);
-        };
-    }
-
-    protected boolean handleFormFields(Request request, org.eclipse.jetty.server.Response response, Callback callback)
-    {
-        Request.Handler handler = getHandler();
-        InvocationType invocationType = handler.getInvocationType();
-        AtomicInteger done = new AtomicInteger(2);
-        var onFields = new Promise.Invocable<Fields>()
-        {
-            @Override
-            public void failed(Throwable x)
-            {
-                succeeded(null);
-            }
-
-            @Override
-            public void succeeded(Fields result)
-            {
-                if (done.decrementAndGet() == 0)
-                    invocationType.runWithoutBlocking(this::handle, request.getContext());
-            }
-
-            @Override
-            public InvocationType getInvocationType()
-            {
-                return invocationType;
-            }
-
-            void handle()
-            {
-                try
-                {
-                    if (!handler.handle(request, response, callback))
-                        callback.failed(new IllegalStateException("Not Handled"));
-                }
-                catch (Throwable t)
-                {
-                    callback.failed(t);
-                }
-            }
-        };
-
-        FormFields.onFields(request, onFields);
-        if (done.decrementAndGet() == 0)
-            onFields.handle();
-
-        return true;
-    }
-
-    protected boolean handleMultiPartFormData(Request request, String contentType, org.eclipse.jetty.server.Response response, Callback callback)
-    {
-        Request.Handler handler = getHandler();
-        InvocationType invocationType = handler.getInvocationType();
-        AtomicInteger done = new AtomicInteger(2);
-        var onParts = new Promise.Invocable<ServletMultiPartFormData.Parts>()
-        {
-            @Override
-            public void failed(Throwable x)
-            {
-                succeeded(null);
-            }
-
-            @Override
-            public void succeeded(ServletMultiPartFormData.Parts result)
-            {
-                if (done.decrementAndGet() == 0)
-                    invocationType.runWithoutBlocking(this::handle, request.getContext());
-            }
-
-            void handle()
-            {
-                try
-                {
-                    if (!handler.handle(request, response, callback))
-                        callback.failed(new IllegalStateException("Not Handled"));
-                }
-                catch (Throwable t)
-                {
-                    callback.failed(t);
-                }
-            }
-
-            @Override
-            public InvocationType getInvocationType()
-            {
-                return invocationType;
-            }
-        };
-
-        ServletMultiPartFormData.onParts(Request.asInContext(request, ServletContextRequest.class).getServletApiRequest(), contentType, onParts);
-        if (done.decrementAndGet() == 0)
-            onParts.handle();
-        return true;
     }
 }

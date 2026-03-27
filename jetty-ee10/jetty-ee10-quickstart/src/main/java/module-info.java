@@ -26,6 +26,4 @@ module org.eclipse.jetty.ee10.quickstart
     requires org.eclipse.jetty.ee10.plus;
 
     exports org.eclipse.jetty.ee10.quickstart;
-
-    provides org.eclipse.jetty.ee.webapp.Configuration with QuickStartConfiguration, QuickStartGeneratorConfiguration;
 }

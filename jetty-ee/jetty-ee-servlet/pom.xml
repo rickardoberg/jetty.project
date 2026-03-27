@@ -8,7 +8,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-servlet</artifactId>
-  <name>EECommon :: Servlet</name>
+  <name>EE :: Servlet</name>
   <description>Jetty Servlet Container</description>
 
   <properties>
@@ -42,6 +42,10 @@
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-util-ajax</artifactId>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.ee</groupId>
+      <artifactId>jetty-ee-common</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>

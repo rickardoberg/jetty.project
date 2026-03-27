@@ -8,7 +8,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-websocket-servlet</artifactId>
-  <name>EECommon :: Websocket :: Servlet</name>
+  <name>EE :: Websocket :: Servlet</name>
 
   <properties>
     <bundle-symbolic-name>${project.groupId}.servlet</bundle-symbolic-name>

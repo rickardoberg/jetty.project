@@ -77,7 +77,7 @@
         <artifactId>jakarta.xml.bind-api</artifactId>
         <version>${ee.jakarta.xml.bind.api.version}</version>
       </dependency>
-      <!-- Jetty EECommon Dependencies -->
+      <!-- Jetty EE Dependencies -->
       <dependency>
         <groupId>org.eclipse.jetty.ee</groupId>
         <artifactId>jetty-ee-annotations</artifactId>
@@ -233,7 +233,7 @@
         <artifactId>mortbay-apache-el</artifactId>
         <version>${ee.jsp.impl.version}</version>
       </dependency>
-      <!-- Jakarta EECommon Dependencies -->
+      <!-- Jakarta EE Dependencies -->
       <dependency>
         <groupId>org.mortbay.jasper</groupId>
         <artifactId>mortbay-apache-jsp</artifactId>

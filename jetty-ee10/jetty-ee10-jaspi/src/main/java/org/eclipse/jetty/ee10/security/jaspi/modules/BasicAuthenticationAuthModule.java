@@ -27,6 +27,16 @@ public class BasicAuthenticationAuthModule extends org.eclipse.jetty.ee.security
 {
     private static final String REALM_KEY = "org.eclipse.jetty.ee10.security.jaspi.modules.RealmName";
 
+    public BasicAuthenticationAuthModule()
+    {
+        super();
+    }
+
+    public BasicAuthenticationAuthModule(CallbackHandler callbackHandler, String realmName)
+    {
+        super(callbackHandler, realmName);
+    }
+
     @Override
     public void initialize(MessagePolicy requestPolicy, MessagePolicy responsePolicy, CallbackHandler callbackHandler, Map options) throws AuthException
     {

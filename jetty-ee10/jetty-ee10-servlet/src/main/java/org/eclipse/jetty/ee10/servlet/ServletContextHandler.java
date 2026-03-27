@@ -39,8 +39,6 @@ import org.eclipse.jetty.util.component.Environment;
 @ManagedObject("Servlet Context Handler")
 public class ServletContextHandler extends org.eclipse.jetty.ee.servlet.ServletContextHandler
 {
-    public static final Environment ENVIRONMENT = Environment.ensure("ee10", org.eclipse.jetty.ee10.servlet.ServletContextHandler.class);
-
     public ServletContextHandler()
     {
         super();

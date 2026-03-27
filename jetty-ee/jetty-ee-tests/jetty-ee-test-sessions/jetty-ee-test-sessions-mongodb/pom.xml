@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-sessions-mongodb</artifactId>
-  <name>EECommon :: Tests :: Sessions :: Mongo</name>
+  <name>EE :: Tests :: Sessions :: Mongo</name>
   <properties>
     <bundle-symbolic-name>${project.groupId}.sessions.mongo</bundle-symbolic-name>
   </properties>

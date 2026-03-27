@@ -8,7 +8,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-quickstart</artifactId>
-  <name>EECommon :: Quick Start</name>
+  <name>EE :: Quick Start</name>
   <description>Jetty Quick Start</description>
 
   <properties>

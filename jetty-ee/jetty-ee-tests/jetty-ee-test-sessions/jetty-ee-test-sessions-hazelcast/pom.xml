@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-sessions-hazelcast</artifactId>
-  <name>EECommon :: Tests :: Sessions :: Hazelcast</name>
+  <name>EE :: Tests :: Sessions :: Hazelcast</name>
   <properties>
     <bundle-symbolic-name>${project.groupId}.sessions.hazelcast</bundle-symbolic-name>
   </properties>

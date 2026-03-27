@@ -8,8 +8,8 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-common</artifactId>
-  <name>Core :: EE :: Web Application</name>
-  <description>Jetty EE Web Application Artifact</description>
+  <name>EE :: Common</name>
+  <description>Jetty EE Common artifact</description>
 
   <properties>
     <bundle-symbolic-name>${project.groupId}.webapp</bundle-symbolic-name>

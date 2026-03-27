@@ -18,5 +18,4 @@ package org.eclipse.jetty.ee10.maven.plugin;
  */
 public class MavenQuickStartConfiguration extends org.eclipse.jetty.ee.maven.plugin.MavenQuickStartConfiguration
 {
-
 }

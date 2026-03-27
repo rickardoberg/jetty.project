@@ -22,6 +22,8 @@ module org.eclipse.jetty.ee.servlet
     requires transitive org.eclipse.jetty.security;
     requires transitive org.eclipse.jetty.session;
 
+    requires org.eclipse.jetty.ee.common;
+
     // Only required if using IntrospectorCleaner.
     requires static java.desktop;
     // Only required if using StatisticsServlet.

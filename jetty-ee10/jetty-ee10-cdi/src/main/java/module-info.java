@@ -25,7 +25,4 @@ module org.eclipse.jetty.ee10.cdi
     requires static jakarta.cdi;
 
     exports org.eclipse.jetty.ee10.cdi;
-
-    provides ServletContainerInitializer with CdiServletContainerInitializer;
-    provides org.eclipse.jetty.ee.webapp.Configuration with CdiConfiguration;
 }

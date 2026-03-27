@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-sessions-gcloud</artifactId>
-  <name>EECommon :: Tests :: Sessions :: GCloud</name>
+  <name>EE :: Tests :: Sessions :: GCloud</name>
   <properties>
     <bundle-symbolic-name>${project.groupId}.sessions.gcloud</bundle-symbolic-name>
   </properties>

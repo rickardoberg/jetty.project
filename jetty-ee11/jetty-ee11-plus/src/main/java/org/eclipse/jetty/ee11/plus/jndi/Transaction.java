@@ -20,7 +20,7 @@ import jakarta.transaction.UserTransaction;
 /**
  * Class to represent a JTA UserTransaction impl.
  */
-public class Transaction extends org.eclipse.jetty.plus.jndi.Transaction
+public class Transaction extends org.eclipse.jetty.ee.plus.jndi.Transaction
 {
     /**
      * @param scope the scope, usually an environment like ee9, ee10, ee11

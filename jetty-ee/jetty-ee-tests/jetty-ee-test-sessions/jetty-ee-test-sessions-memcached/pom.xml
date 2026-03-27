@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-sessions-memcached</artifactId>
-  <name>EECommon :: Tests :: Sessions :: Memcached</name>
+  <name>EE :: Tests :: Sessions :: Memcached</name>
   <properties>
     <bundle-symbolic-name>${project.groupId}.sessions.memcached</bundle-symbolic-name>
   </properties>

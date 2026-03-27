@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>test-jetty-ee-osgi-server</artifactId>
-  <name>EECommon :: OSGi :: Server</name>
+  <name>EE :: OSGi :: Server</name>
   <description>Test Jetty OSGi bundle with a Server</description>
   <properties>
     <bundle-symbolic-name>${project.groupId}.testserver</bundle-symbolic-name>

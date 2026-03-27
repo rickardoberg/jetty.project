@@ -18,6 +18,7 @@ module org.eclipse.jetty.ee11.servlets
 {
     requires org.slf4j;
 
+    requires transitive org.eclipse.jetty.ee.servlets;
     requires transitive jakarta.servlet;
 
     // Only required if using CloseableDoSFilter.
@@ -27,6 +28,7 @@ module org.eclipse.jetty.ee11.servlets
     requires static org.eclipse.jetty.server;
     // Only required if using CrossOriginFilter, DoSFilter, etc.
     requires static transitive org.eclipse.jetty.util;
+    requires org.eclipse.jetty.ee.common;
 
     exports org.eclipse.jetty.ee11.servlets;
 }

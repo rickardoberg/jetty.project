@@ -8,7 +8,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-jaspi</artifactId>
-  <name>EECommon :: JASPI</name>
+  <name>EE :: JASPI</name>
   <description>Jetty security infrastructure</description>
 
   <properties>

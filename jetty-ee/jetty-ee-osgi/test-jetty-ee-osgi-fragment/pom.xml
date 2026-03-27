@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>test-jetty-ee-osgi-fragment</artifactId>
-  <name>EECommon :: OSGi :: WebApp Fragment</name>
+  <name>EE :: OSGi :: WebApp Fragment</name>
   <description>Test Jetty OSGi Webapp Fragment bundle</description>
   <properties>
     <bundle-symbolic-name>${project.groupId}.webapp.fragment</bundle-symbolic-name>

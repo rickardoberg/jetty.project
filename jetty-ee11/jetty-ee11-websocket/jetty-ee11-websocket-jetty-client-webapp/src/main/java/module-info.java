@@ -21,5 +21,5 @@ module org.eclipse.jetty.ee11.websocket.jetty.client
 
     exports org.eclipse.jetty.ee11.websocket.client.config;
 
-    provides org.eclipse.jetty.ee11.webapp.Configuration with JettyWebSocketClientConfiguration;
+    provides org.eclipse.jetty.ee.webapp.Configuration with JettyWebSocketClientConfiguration;
 }

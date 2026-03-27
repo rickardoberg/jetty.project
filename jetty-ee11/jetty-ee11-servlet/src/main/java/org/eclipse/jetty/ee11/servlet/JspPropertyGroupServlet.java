@@ -13,17 +13,7 @@
 
 package org.eclipse.jetty.ee11.servlet;
 
-import java.io.IOException;
-import java.util.Locale;
-
-import jakarta.servlet.GenericServlet;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServletRequest;
 import org.eclipse.jetty.server.handler.ContextHandler;
-import org.eclipse.jetty.util.URIUtil;
-import org.eclipse.jetty.util.resource.Resource;
 
 /**
  * Servlet handling JSP Property Group mappings
@@ -33,101 +23,10 @@ import org.eclipse.jetty.util.resource.Resource;
  * directly to the JSP servlet.    Resources that are directories will be
  * passed directly to the default servlet.
  */
-public class JspPropertyGroupServlet extends GenericServlet
+public class JspPropertyGroupServlet extends org.eclipse.jetty.ee.servlet.JspPropertyGroupServlet
 {
-    public static final String NAME = "__org.eclipse.jetty.servlet.JspPropertyGroupServlet__";
-    private final ServletHandler _servletHandler;
-    private ServletHolder _dftServlet;
-    private ServletHolder _jspServlet;
-    private boolean _starJspMapped;
-
     public JspPropertyGroupServlet(ContextHandler context, ServletHandler servletHandler)
     {
-        _servletHandler = servletHandler;
-    }
-
-    @Override
-    public void init() throws ServletException
-    {
-        String jspName = "jsp";
-        ServletMapping servletMapping = _servletHandler.getServletMapping("*.jsp");
-        if (servletMapping != null)
-        {
-            _starJspMapped = true;
-
-            //now find the jsp servlet, ignoring the mapping that is for ourself
-            ServletMapping[] mappings = _servletHandler.getServletMappings();
-            for (ServletMapping m : mappings)
-            {
-                String[] paths = m.getPathSpecs();
-                if (paths != null)
-                {
-                    for (String path : paths)
-                    {
-                        if ("*.jsp".equals(path) && !NAME.equals(m.getServletName()))
-                        {
-                            servletMapping = m;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            jspName = servletMapping.getServletName();
-        }
-        _jspServlet = _servletHandler.getServlet(jspName);
-
-        String defaultName = "default";
-        ServletMapping defaultMapping = _servletHandler.getServletMapping("/");
-        if (defaultMapping != null)
-            defaultName = defaultMapping.getServletName();
-        _dftServlet = _servletHandler.getServlet(defaultName);
-    }
-
-    @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException
-    {
-        HttpServletRequest request;
-        if (req instanceof HttpServletRequest)
-            request = (HttpServletRequest)req;
-        else
-            throw new ServletException("Request not HttpServletRequest");
-
-        String servletPath;
-        String pathInfo;
-        if (request.getAttribute(Dispatcher.INCLUDE_REQUEST_URI) != null)
-        {
-            servletPath = (String)request.getAttribute(Dispatcher.INCLUDE_SERVLET_PATH);
-            pathInfo = (String)request.getAttribute(Dispatcher.INCLUDE_PATH_INFO);
-            if (servletPath == null)
-            {
-                servletPath = request.getServletPath();
-                pathInfo = request.getPathInfo();
-            }
-        }
-        else
-        {
-            servletPath = request.getServletPath();
-            pathInfo = request.getPathInfo();
-        }
-
-        String pathInContext = URIUtil.addPaths(servletPath, pathInfo);
-
-        if (pathInContext.endsWith("/"))
-        {
-            _dftServlet.getServlet().service(req, res);
-        }
-        else if (_starJspMapped && pathInContext.toLowerCase(Locale.ENGLISH).endsWith(".jsp"))
-        {
-            _jspServlet.getServlet().service(req, res);
-        }
-        else
-        {
-            Resource resource = null; // TODO: _contextHandler.getResource(pathInContext);
-            if (resource != null && resource.isDirectory())
-                _dftServlet.getServlet().service(req, res);
-            else
-                _jspServlet.getServlet().service(req, res);
-        }
+        super(context, servletHandler);
     }
 }

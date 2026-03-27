@@ -32,6 +32,8 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
  * </p>
  * Runs jspc compiler to produce .java and .class files
  */
+@Mojo(name = "jspc", defaultPhase = LifecyclePhase.PROCESS_CLASSES, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
+    threadSafe = true)
 public class JspcMojo extends org.eclipse.jetty.ee.jspc.plugin.JspcMojo
 {
 }

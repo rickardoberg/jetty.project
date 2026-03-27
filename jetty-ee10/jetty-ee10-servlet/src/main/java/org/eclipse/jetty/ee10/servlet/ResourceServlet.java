@@ -159,5 +159,4 @@ import org.eclipse.jetty.util.resource.Resource;
  */
 public class ResourceServlet extends org.eclipse.jetty.ee.servlet.ResourceServlet
 {
-
 }

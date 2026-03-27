@@ -18,9 +18,9 @@ import java.util.Locale;
 
 import org.eclipse.jetty.ee.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
-import org.eclipse.jetty.ee10.plus.webapp.EnvConfiguration;
-import org.eclipse.jetty.ee10.plus.webapp.PlusConfiguration;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.ee.plus.webapp.EnvConfiguration;
+import org.eclipse.jetty.ee.plus.webapp.PlusConfiguration;
+import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.URIUtil;
 import org.eclipse.jetty.util.resource.Resource;

@@ -13,16 +13,8 @@
 
 package org.eclipse.jetty.ee11.cdi;
 
-import java.util.Objects;
-import java.util.Set;
-
 import jakarta.servlet.ServletContainerInitializer;
-import jakarta.servlet.ServletContext;
 import org.eclipse.jetty.ee11.annotations.AnnotationConfiguration;
-import org.eclipse.jetty.ee11.servlet.ServletContextHandler;
-import org.eclipse.jetty.util.Loader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * <p>A {@link ServletContainerInitializer} that introspects for a CDI API
@@ -40,53 +32,6 @@ import org.slf4j.LoggerFactory;
  *
  * @see AnnotationConfiguration.ServletContainerInitializerOrdering
  */
-public class CdiServletContainerInitializer implements ServletContainerInitializer
+public class CdiServletContainerInitializer extends org.eclipse.jetty.ee.cdi.CdiServletContainerInitializer
 {
-    public static final String CDI_INTEGRATION_ATTRIBUTE = "org.eclipse.jetty.cdi";
-    private static final Logger LOG = LoggerFactory.getLogger(CdiServletContainerInitializer.class);
-
-    @Override
-    public void onStartup(Set<Class<?>> c, ServletContext ctx)
-    {
-        try
-        {
-            ServletContextHandler context = ServletContextHandler.getServletContextHandler(ctx);
-            Objects.requireNonNull(context);
-
-            // Test if CDI is in the webapp by trying to load the CDI class.
-            ClassLoader loader  = context.getClassLoader();
-            if (loader == null)
-                Loader.loadClass("jakarta.enterprise.inject.spi.CDI");
-            else
-                loader.loadClass("jakarta.enterprise.inject.spi.CDI");
-
-            String mode = ctx.getInitParameter(CDI_INTEGRATION_ATTRIBUTE);
-            if (mode == null)
-            {
-                mode = (String)context.getServer().getAttribute(CDI_INTEGRATION_ATTRIBUTE);
-                if (mode == null)
-                    mode = CdiSpiDecorator.MODE;
-            }
-
-            switch (mode)
-            {
-                case CdiSpiDecorator.MODE:
-                    context.getObjectFactory().addDecorator(new CdiSpiDecorator(context));
-                    break;
-
-                case CdiDecoratingListener.MODE:
-                    context.addEventListener(new CdiDecoratingListener(context));
-                    break;
-
-                default:
-                    throw new IllegalStateException(mode);
-            }
-            LOG.info("{} enabled in {}", mode, ctx);
-        }
-        catch (UnsupportedOperationException | ClassNotFoundException e)
-        {
-            if (LOG.isDebugEnabled())
-                LOG.debug("CDI not found in {}", ctx, e);
-        }
-    }
 }

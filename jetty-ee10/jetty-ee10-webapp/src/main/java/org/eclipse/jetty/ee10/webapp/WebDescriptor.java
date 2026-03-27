@@ -27,24 +27,6 @@ import org.eclipse.jetty.xml.XmlParser;
  */
 public class WebDescriptor extends org.eclipse.jetty.ee.webapp.WebDescriptor
 {
-    public static XmlParser __nonValidatingStaticParser = newParser(false);
-
-    protected static void addDescriptorCatalog(XmlParser xmlParser) throws IllegalStateException
-    {
-        String catalogName = "catalog-%s.xml".formatted(ServletContextHandler.ENVIRONMENT.getName());
-        URL url = org.eclipse.jetty.ee.webapp.WebDescriptor.class.getResource(catalogName);
-        if (url == null)
-            throw new IllegalStateException("Catalog not found: %s/%s".formatted(org.eclipse.jetty.ee.webapp.WebDescriptor.class.getPackageName(), catalogName));
-        try
-        {
-            xmlParser.addCatalog(URI.create(url.toExternalForm()), Servlet.class);
-        }
-        catch (IOException e)
-        {
-            throw new IllegalStateException("Unable to add catalog: " + url, e);
-        }
-    }
-
     public WebDescriptor(Resource xml)
     {
         super(xml);

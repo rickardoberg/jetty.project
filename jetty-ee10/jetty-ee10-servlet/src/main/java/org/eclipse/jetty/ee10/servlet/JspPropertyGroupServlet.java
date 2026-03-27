@@ -25,7 +25,6 @@ import org.eclipse.jetty.server.handler.ContextHandler;
  */
 public class JspPropertyGroupServlet extends org.eclipse.jetty.ee.servlet.JspPropertyGroupServlet
 {
-
     public JspPropertyGroupServlet(ContextHandler context, ServletHandler servletHandler)
     {
         super(context, servletHandler);

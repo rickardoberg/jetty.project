@@ -7,7 +7,7 @@
     <version>12.1.7-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-ee-test-sessions-file</artifactId>
-  <name>EECommon :: Tests :: Sessions :: File</name>
+  <name>EE :: Tests :: Sessions :: File</name>
   <properties>
     <bundle-symbolic-name>${project.groupId}.sessions.file</bundle-symbolic-name>
   </properties>
