@@ -46,7 +46,6 @@ public class ServletHandler extends org.eclipse.jetty.ee.servlet.ServletHandler
         return (FilterHolder)super.addFilterWithMapping(filter, pathSpec, dispatches);
     }
 
-
     @Override
     public org.eclipse.jetty.ee10.servlet.ServletHolder newServletHolder(Source source)
     {

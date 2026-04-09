@@ -32,11 +32,13 @@ public enum ServletApiVersion
         return version;
     }
 
-    public int getMajorVersion(){
+    public int getMajorVersion()
+    {
         return major;
     }
 
-    public int getMinorVersion(){
+    public int getMinorVersion()
+    {
         return minor;
     }
 
@@ -55,17 +57,19 @@ public enum ServletApiVersion
         {
             Class<?> loadedClass = classLoader.loadClass("jakarta.servlet.ServletRequest");
             String specificationVersion = loadedClass.getPackage().getSpecificationVersion();
-            if (specificationVersion == null){
+            if (specificationVersion == null)
+            {
                 LOG.info("getDefinedPackage");
                 specificationVersion = classLoader.getDefinedPackage("jakarta.servlet").getSpecificationVersion();
             }
-            if (specificationVersion == null){
+            if (specificationVersion == null)
+            {
                 LOG.info("getModule");
                 specificationVersion = loadedClass.getModule().getDescriptor().version()
                     .map(ModuleDescriptor.Version::toString)
                     .map(version -> version.substring(0, version.lastIndexOf('.')))
                     .orElse(null);
-                LOG.info("Version:"+specificationVersion);
+                LOG.info("Version:" + specificationVersion);
             }
             return ServletApiVersion.from(specificationVersion);
         }

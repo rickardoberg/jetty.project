@@ -37,7 +37,6 @@ public class BasicAuthenticationAuthModule extends org.eclipse.jetty.ee.security
         super(callbackHandler, realmName);
     }
 
-
     @Override
     public void initialize(MessagePolicy requestPolicy, MessagePolicy responsePolicy, CallbackHandler callbackHandler, Map options) throws AuthException
     {

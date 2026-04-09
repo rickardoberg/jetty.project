@@ -423,8 +423,6 @@ public class AnnotationConfiguration extends AbstractConfiguration
         }
     }
 
-
-
     @Override
     public void preConfigure(final WebAppContext context)
     {

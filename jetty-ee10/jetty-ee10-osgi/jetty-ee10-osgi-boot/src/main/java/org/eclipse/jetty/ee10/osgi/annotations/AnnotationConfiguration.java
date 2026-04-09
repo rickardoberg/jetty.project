@@ -13,25 +13,6 @@
 
 package org.eclipse.jetty.ee10.osgi.annotations;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import jakarta.servlet.ServletContainerInitializer;
-import org.eclipse.jetty.annotations.AnnotationParser.Handler;
-import org.eclipse.jetty.ee.webapp.Configuration;
-import org.eclipse.jetty.ee10.osgi.boot.OSGiMetaInfConfiguration;
-import org.eclipse.jetty.ee.webapp.WebAppContext;
-import org.eclipse.jetty.osgi.OSGiWebappConstants;
-import org.eclipse.jetty.util.FileID;
-import org.eclipse.jetty.util.StringUtil;
-import org.eclipse.jetty.util.resource.Resource;
-import org.eclipse.jetty.util.resource.ResourceFactory;
-import org.eclipse.jetty.util.statistic.CounterStatistic;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.Constants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * Extend the AnnotationConfiguration to support OSGi:
  * Look for annotations inside WEB-INF/lib and also in the fragments and required bundles.

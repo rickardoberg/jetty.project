@@ -16,10 +16,10 @@ package org.eclipse.jetty.ee11.quickstart;
 import java.nio.file.Files;
 import java.util.Locale;
 
-import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
 import org.eclipse.jetty.ee.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.ee.plus.webapp.EnvConfiguration;
 import org.eclipse.jetty.ee.plus.webapp.PlusConfiguration;
+import org.eclipse.jetty.ee.webapp.MetaInfConfiguration;
 import org.eclipse.jetty.ee.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.URIUtil;
@@ -110,13 +110,13 @@ public class PreconfigureQuickStartWar
 
         WebAppContext webapp = new WebAppContext();
         webapp.addConfiguration(new QuickStartConfiguration(),
-                                new EnvConfiguration(),
-                                new PlusConfiguration(),
-                                new AnnotationConfiguration());
+            new EnvConfiguration(),
+            new PlusConfiguration(),
+            new AnnotationConfiguration());
         webapp.setAttribute(QuickStartConfiguration.MODE, QuickStartConfiguration.Mode.GENERATE);
         webapp.setAttribute(QuickStartConfiguration.ORIGIN_ATTRIBUTE, "");
         webapp.setAttribute(MetaInfConfiguration.CONTAINER_JAR_PATTERN,
-                ".*/jakarta.servlet-api-[^/]*\\.jar$|.*jakarta.servlet.jsp.jstl-.*\\.jar$");
+            ".*/jakarta.servlet-api-[^/]*\\.jar$|.*jakarta.servlet.jsp.jstl-.*\\.jar$");
         if (xml != null)
         {
             if (xml.isDirectory() || !xml.toString().toLowerCase(Locale.ENGLISH).endsWith(".xml"))
